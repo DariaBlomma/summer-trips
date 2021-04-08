@@ -1,0 +1,150 @@
+﻿body {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+h1 {
+  color:#97320A;
+  font-family: "Georgia", serif;
+  text-transform: uppercase;
+  text-align:center;
+}
+h2 {
+	font-family: "Georgia", serif;
+	text-align:center;
+	color: #66635b;
+}
+h3 {
+  padding-bottom: 12px;
+}
+.sailors p {
+	font-family: monospace;
+	font-size: 18px;
+	text-align: center;
+	line-height: 20px;
+	font-weight: bold;
+}
+.sailors {
+	float: right;
+	max-width: 450px;
+}
+.kikons p {
+	font-family: monospace;
+	font-size: 18px;
+	text-align: center;
+	line-height: 20px;
+	font-weight: bold;
+}
+.kikons {
+	text-align: center;
+	margin: auto;
+	max-width: 500px;
+}
+section {
+	font-family: "Georgia", serif;
+	font-size: 18px;
+	text-align:center;
+	padding-top: 3%;
+}
+.time {
+	font-size: 22px;
+	font-weight: bold;
+	border-bottom: 1px solid #cccccc;
+}
+.description {
+	font-size: 18px;
+	font-family: monospace;
+	font-style: oblique;
+}
+.situation {
+	font-family: cursive;
+}
+header a{
+	color:#3B429F;
+}
+header a:visited {
+	color:#11122D;
+}
+header a:hover {
+	color: #f9dc5c;
+}
+.features p {
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+  margin: 0 5px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: center top;
+  font-size: 20px;
+  font-family: "Georgia", serif;
+  font-weight: bold;
+  padding-top: 5%;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #cccccc;
+ }
+.feature-ship{
+ padding-top: 60px;
+ background-image: url("../../images/ship small 2.jpg");
+}
+.feature-grammar {
+	padding-top: 60px;
+	background-image: url("../../images/grammar.jpg");
+}
+.feature-training {
+	padding-top: 60px;
+	background-image: url("../../images/training.jpg");
+}
+.feature-challenge {
+	padding-top: 60px;
+	background-image: url("../../images/the challenge.jpg");
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+main a{
+	 color: #7983F3;
+	 font-family: "URW Chancery L", cursive;
+	 font-size: 22px;
+}
+main a:visited {
+	color: #7B19B3;
+}
+main a:hover {
+	color: #f9dc5c;
+}
+.wrong {
+	font-family: "URW Chancery L", cursive;
+	color: #E07A7A;
+	padding: 2px;
+}
+.right {
+	font-family: "URW Chancery L", cursive;
+	color: #386B1E;
+	padding: 2px;
+}
+.php {
+	font-family: "URW Chancery L", cursive;
+	color: #EA871D;
+	padding: 2px;
+}
+.startpage {
+	text-align: center;
+	font-size: 20px;
+	font-family: "URW Chancery L", cursive;
+}
+footer {
+	text-align: center;
+	font-size: 20px;
+	font-family: "URW Chancery L", cursive;
+	background: #97320A;
+}
+footer a{
+	color:#F3E5BC;
+}
+footer a:visited {
+	color:#f49d37;
+}
+footer a:hover {
+	color: #79F1F3;
+}
