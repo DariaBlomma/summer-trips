@@ -167,10 +167,67 @@ body {
 }
 
 @media (max-width: 375px) {
-    body {
+    .index-page-body {
         background-color: rgb(19 42 95);
         background-image: url('images/avengers_mobile.jpg');
         background-position-y: 20px;
+    }
+
+
+    .page-coins-text {
+        display: none;
+    }
+
+    .main-title {
+        font-size: 1.3em;
+    }
+
+    .secondary-title {
+        font-size: 1em;
+    }
+
+    .characters-info_text {
+        font-size: 0.8em;
+    }
+
+    .characters-info {
+        grid-template-areas: 
+        'thanos thanos thanos thanos  strange strange strange strange strange strange'
+        'thor thor thor thor thor captain captain captain captain captain'
+        'gamora gamora gamora gamora starLord starLord starLord starLord starLord starLord'
+        '. . . . . . spiderman spiderman spiderman spiderman'
+        '. . . . . . spiderman spiderman spiderman spiderman';
+    }
+
+/* это будет меняться по щелчку, некоторые элементы встают на место предыдущих */
+    .captainAmerica-info {
+        display: none;
+    }
+
+    .ironMan-info {
+        grid-area: captain;
+    }
+
+    .thor-info {
+        display: none;
+    }
+
+    .romanoff-info {
+        grid-area: thor;
+    }
+    
+    .starLord-info {
+        display: none;
+    }
+
+
+    .gamora-info {
+        grid-area: starLord;
+        display: none;
+    }
+
+    .hulk-info {
+        grid-area: starLord;
     }
 }
 
