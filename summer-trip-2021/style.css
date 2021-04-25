@@ -27,11 +27,11 @@ body {
 
 
 .index-page-body {
-    background-image: url('images/avengers.jpg');
+    background-image: url('images/avengers.jpg'), url('images/avengers.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    background-position: center;
+    background-position: center, center 10px;
 }
 
 
@@ -101,6 +101,19 @@ body {
     font-family: 'Playfair Display', serif;
 }
 
+.secondary-title {
+    font-family: 'Playfair Display', serif;
+}
+
+
+.title-3 {
+    margin: 5px 0;
+    font-family: 'Playfair Display', serif;
+    color: #141d1c;
+    filter: drop-shadow(0 0 3px rgba(0,0,0,0.5));
+}
+
+
 button {
     width: 140px;
     height: 48px;
@@ -108,12 +121,45 @@ button {
     border-radius: 48px;
     background: repeating-linear-gradient(
         45deg,
-        rgba(145, 153, 153, 0.6),
-        rgba(145, 153, 153, 0.6) 10px,
+        rgba(145, 153, 153, 0.2),
+        rgba(145, 153, 153, 0.4) 10px,
         transparent 10px,
         transparent 20px
         ),
-        linear-gradient(to top, #66706f, #c0cecd);
+        linear-gradient(to top, #66706f, #c0cecd 50%);
+    box-shadow: 0 0 5px rgba(0,0,0,0.6), 0 0 16px rgba(0,0,0,0.75) inset;
+}
+
+button:hover {
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(145, 153, 153, 0.2),
+        rgba(145, 153, 153, 0.4) 10px,
+        transparent 10px,
+        transparent 20px
+        ),
+        linear-gradient(to top, #0d3733, #2efdff);
+    
+}
+
+button:hover h3, button:active h3 {
+    color: #dbdbdb;
+}
+
+button:active {
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(145, 153, 153, 0.2),
+        rgba(145, 153, 153, 0.4) 10px,
+        transparent 10px,
+        transparent 20px
+        ),
+        linear-gradient(to top, #0d3733, #3cd3c3);
+    color: white;
+}
+
+button:focus {
+    outline: none;
 }
 
 .select-wrapper {
@@ -127,9 +173,7 @@ button {
     text-align: center;
 }
 
-.title-3 {
-    margin: 5px 0;
-}
+
 
 
 .characters-info {
@@ -156,13 +200,6 @@ button {
     margin: 5px 0;
 }
 
-.choose-character {
-    background-color: #E4EBF5;
-}
-
-.choose-character:hover {
-    background-color: #6d5dfc;
-}
 
 
 .thanos-info {
