@@ -10,15 +10,31 @@ font-family: 'Playfair Display', serif; */ /* for h1 */
 body {
     font-family: 'Montserrat', sans-serif;
 }
+
+/* .d-none {
+    display: none;
+} */
+
+
 /* index page styles */
+.desc-img {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
 .index-page-body {
-    background-color: rgb(19 42 95);
     background-image: url('images/avengers.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    background-position: center 10px;
+    background-position: center;
 }
+
+
 
 .index-page-header {
     height: 80px;
@@ -28,6 +44,8 @@ body {
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
+    position: relative;
+    z-index: 1
 }
 
 
@@ -83,6 +101,37 @@ body {
     font-family: 'Playfair Display', serif;
 }
 
+button {
+    width: 140px;
+    height: 48px;
+    border: 3px solid #292c30;
+    border-radius: 48px;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(145, 153, 153, 0.6),
+        rgba(145, 153, 153, 0.6) 10px,
+        transparent 10px,
+        transparent 20px
+        ),
+        linear-gradient(to top, #66706f, #c0cecd);
+}
+
+.select-wrapper {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.8);
+    max-width: 150px;
+    padding: 5px;
+    text-align: center;
+}
+
+.title-3 {
+    margin: 5px 0;
+}
+
+
 .characters-info {
     display: grid;
     grid-template-columns: repeat(10,1fr);
@@ -93,9 +142,11 @@ body {
     '. ironMan ironMan ironMan ironMan . . starLord starLord starLord'
     'romanoff romanoff romanoff romanoff . . . gamora gamora gamora'
     'hulk hulk hulk . . spiderman spiderman . . .';
+    position: relative;
+    z-index: 1;
 }
 
-.characters-info div {
+.characters-info__item {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 5px;
     text-align: center;
@@ -166,7 +217,16 @@ body {
     grid-area: spiderman;
 }
 
+.active {
+    display: block;
+}
+
+
 @media (max-width: 375px) {
+    .desc-img {
+        display: none;
+    }
+
     .index-page-body {
         background-color: rgb(19 42 95);
         background-image: url('images/avengers_mobile.jpg');
