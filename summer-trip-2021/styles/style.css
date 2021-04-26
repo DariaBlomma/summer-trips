@@ -17,17 +17,17 @@ body {
 
 
 /* index page styles */
-.desc-img {
+/* .desc-img {
     position: absolute;
     top: 10px;
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+} */
 
 
 .index-page-body {
-    background-image: url('images/avengers.jpg'), url('images/avengers.jpg');
+    background-image: url('../images/avengers.jpg'), url('../images/avengers.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -84,13 +84,13 @@ body {
 }
 
 .avatar-wrapper {
-    background-image: url('images/user.svg');
-    background-image: url('images/ruslam_real.jpg');
-    background-image: url('images/thanos_avatar.jpg');
-    background-image: url('images/thor_avatar.jpg');
-    background-image: url('images/ironMan_avatar.jpg');
-    background-image: url('images/drStrange_avatar.jpg');
-    background-image: url('images/hulk_avatar.jpg');
+    background-image: url('../images/user.svg');
+    background-image: url('../images/ruslam_real.jpg');
+    background-image: url('../images/thanos_avatar.jpg');
+    background-image: url('../images/thor_avatar.jpg');
+    background-image: url('../images/ironMan_avatar.jpg');
+    background-image: url('../images/drStrange_avatar.jpg');
+    background-image: url('../images/hulk_avatar.jpg');
     background-position: center center;
     background-size: cover;
     border: 1px solid black;
@@ -155,7 +155,6 @@ button:active {
         transparent 20px
         ),
         linear-gradient(to top, #0d3733, #3cd3c3);
-    color: white;
 }
 
 button:focus {
@@ -172,8 +171,6 @@ button:focus {
     padding: 5px;
     text-align: center;
 }
-
-
 
 
 .characters-info {
