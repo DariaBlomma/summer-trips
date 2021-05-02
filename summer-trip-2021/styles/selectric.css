@@ -117,7 +117,7 @@
       transparent 10px,
       transparent 20px
       ),
-      linear-gradient(to top, #66706f, #c0cecd 50%);
+      linear-gradient(to top, #020014, #5ea0d6 50%);
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -180,7 +180,7 @@
         transparent 10px,
         transparent 20px
         ),
-        linear-gradient(to top, #0d3733, #2efdff);
+        linear-gradient(to top, #2e2d41, #b8e1ee);
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -262,7 +262,7 @@
         transparent 10px,
         transparent 20px
         ),
-        linear-gradient(to top, #0d3733, #3cd3c3);
+        linear-gradient(to top, #e46609, #d6d100);
   color: #dbdbdb;
 }
 
@@ -276,7 +276,7 @@
         transparent 10px,
         transparent 20px
         ),
-        linear-gradient(to top, #0d3733, #2efdff);
+        linear-gradient(to top, #2e2d41, #b8e1ee);
   color: #dbdbdb;
 }
 

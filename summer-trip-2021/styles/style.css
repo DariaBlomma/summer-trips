@@ -11,20 +11,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* .d-none {
-    display: none;
-} */
+
 
 
 /* index page styles */
-/* .desc-img {
-    position: absolute;
-    top: 10px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-} */
-
 
 .index-page-body {
     background-image: url('../images/avengers.jpg'), url('../images/avengers.jpg');
@@ -38,14 +28,15 @@ body {
 
 .index-page-header {
     height: 80px;
-    background-color: rgba(255, 255, 255, 0.8);
+    /* background-color: rgba(255, 255, 255, 0.8); */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
     position: relative;
-    z-index: 1
+    z-index: 1;
+    color: white;
 }
 
 
@@ -69,7 +60,9 @@ body {
 
 .page-coins-number {
     font-size: larger;
-    color: #402408;
+    /* color: #402408; */
+    color: white;
+    filter: drop-shadow(0 0 3px rgba(0,0,0,0.5));
     font-weight: bold;
     margin-right: 5px;
 }
@@ -85,12 +78,20 @@ body {
 
 .avatar-wrapper {
     background-image: url('../images/user.svg');
-    background-image: url('../images/ruslam_real.jpg');
+    background-image: url('../images/ruslan_real.jpg');
+    background-image: url('../images/sofa_real.jpg');
+    background-image: url('../images/masha_real.jpg');
     background-image: url('../images/thanos_avatar.jpg');
     background-image: url('../images/thor_avatar.jpg');
     background-image: url('../images/ironMan_avatar.jpg');
     background-image: url('../images/drStrange_avatar.jpg');
     background-image: url('../images/hulk_avatar.jpg');
+    background-image: url('../images/captain_america_avatar.jpg');
+    background-image: url('../images/star_lord_avatar.jpg');
+    background-image: url('../images/black_widow_avatar.jpg');
+    background-image: url('../images/gamora_avatar.jpg');
+    background-image: url('../images/spiderman_avatar.jpg');
+    
     background-position: center center;
     background-size: cover;
     border: 1px solid black;
@@ -99,6 +100,10 @@ body {
 /* h1 */
 .main-title {
     font-family: 'Playfair Display', serif;
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 600px;
+    color: white;
 }
 
 .secondary-title {
@@ -110,7 +115,6 @@ body {
     margin: 5px 0;
     font-family: 'Playfair Display', serif;
     color: #141d1c;
-    filter: drop-shadow(0 0 3px rgba(0,0,0,0.5));
 }
 
 
@@ -119,47 +123,111 @@ button {
     height: 48px;
     border: 3px solid #292c30;
     border-radius: 48px;
-    background: repeating-linear-gradient(
+    /* background: repeating-linear-gradient(
         45deg,
         rgba(145, 153, 153, 0.2),
         rgba(145, 153, 153, 0.4) 10px,
         transparent 10px,
         transparent 20px
         ),
-        linear-gradient(to top, #66706f, #c0cecd 50%);
+        linear-gradient(to top, #66706f, #c0cecd 50%); */
+    background: repeating-linear-gradient(
+            45deg,
+            rgba(145, 153, 153, 0.2),
+            rgba(145, 153, 153, 0.4) 10px,
+            transparent 10px,
+            transparent 20px
+            ),
+            linear-gradient(to top, #020014, #5ea0d6 50%);
     box-shadow: 0 0 5px rgba(0,0,0,0.6), 0 0 16px rgba(0,0,0,0.75) inset;
 }
 
 button:hover {
-    background: repeating-linear-gradient(
+    /* background: repeating-linear-gradient(
         45deg,
         rgba(145, 153, 153, 0.2),
         rgba(145, 153, 153, 0.4) 10px,
         transparent 10px,
         transparent 20px
         ),
-        linear-gradient(to top, #0d3733, #2efdff);
+        linear-gradient(to top, #0d3733, #2efdff); */
+        background: repeating-linear-gradient(
+        45deg,
+        rgba(145, 153, 153, 0.2),
+        rgba(145, 153, 153, 0.4) 10px,
+        transparent 10px,
+        transparent 20px
+        ),
+        linear-gradient(to top, #2e2d41, #b8e1ee);
     
 }
 
-button:hover h3, button:active h3 {
-    color: #dbdbdb;
-}
 
 button:active {
-    background: repeating-linear-gradient(
+    /* background: repeating-linear-gradient(
         45deg,
         rgba(145, 153, 153, 0.2),
         rgba(145, 153, 153, 0.4) 10px,
         transparent 10px,
         transparent 20px
         ),
-        linear-gradient(to top, #0d3733, #3cd3c3);
+        linear-gradient(to top, #0d3733, #3cd3c3); */
+        background: repeating-linear-gradient(
+        45deg,
+        rgba(145, 153, 153, 0.2),
+        rgba(145, 153, 153, 0.4) 10px,
+        transparent 10px,
+        transparent 20px
+        ),
+        linear-gradient(to top, #e46609, #d6d100);
 }
 
 button:focus {
     outline: none;
 }
+
+.popup-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(3, 3, 3, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 3;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 3px solid #292c30;
+    border-radius: 28px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.6), 0 0 16px rgba(0,0,0,0.75) inset;
+}
+
+.input-form {
+    border-radius: 28px;
+    height: 30px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.input-form:focus {
+    outline: none;
+    border-width: 3px;
+}
+
+
+
+.label {
+    font-size: 12px;
+    padding: 0 20px;
+}
+
 
 .select-wrapper {
     position: absolute;
@@ -168,8 +236,11 @@ button:focus {
     z-index: 2;
     background-color: rgba(255, 255, 255, 0.8);
     max-width: 150px;
-    padding: 5px;
+    padding: 7px;
     text-align: center;
+    border: 3px solid #292c30;
+    border-radius: 28px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.6), 0 0 16px rgba(0,0,0,0.75) inset;
 }
 
 
@@ -185,12 +256,18 @@ button:focus {
     'hulk hulk hulk . . spiderman spiderman . . .';
     position: relative;
     z-index: 1;
+    align-items: center;
+    justify-content: center;
 }
 
 .characters-info__item {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 5px;
     text-align: center;
+    border: 3px solid #292c30;
+    border-radius: 28px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.6), 0 0 16px rgba(0,0,0,0.75) inset;
+    justify-items: center;
 }
 
 .characters-info_text {
@@ -255,16 +332,32 @@ button:focus {
     display: block;
 }
 
+.valid {
+    border: 1px solid green;
+}
+
+.invalid {
+    border: 1px solid red;
+}
+
+.d-none {
+    display: none;
+}
+
 
 @media (max-width: 375px) {
-    .desc-img {
-        display: none;
+    .index-page-body {
+        background-image: url('../images/avengers_mobile.jpg');
+        padding: 0 10px;
     }
 
-    .index-page-body {
-        background-color: rgb(19 42 95);
-        background-image: url('images/avengers_mobile.jpg');
-        background-position-y: 20px;
+    .index-page-header {
+        padding: 0 10px;
+    }
+
+
+    .coin-img, .avatar-wrapper {
+        box-shadow: 0px 0px 30px 22px rgba(255, 255, 255, 0.2);
     }
 
 
@@ -273,11 +366,41 @@ button:focus {
     }
 
     .main-title {
+        align-self: flex-start;
+        flex-basis: 200px;
         font-size: 1.3em;
     }
 
     .secondary-title {
         font-size: 1em;
+    }
+
+
+    button {
+        width: 120px;
+        height: 40px;
+    }
+
+    button:hover, button:active {
+        background: repeating-linear-gradient(
+            45deg,
+            rgba(145, 153, 153, 0.2),
+            rgba(145, 153, 153, 0.4) 10px,
+            transparent 10px,
+            transparent 20px
+            ),
+            linear-gradient(to top, #e46609, #d6d100);
+    }
+
+
+    .popup-wrapper {
+        padding: 0 50px;
+    }
+
+
+    .select-wrapper {
+        left: auto;
+        right: 20px;
     }
 
     .characters-info_text {

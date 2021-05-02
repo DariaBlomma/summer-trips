@@ -1,3 +1,6 @@
 $(function() {
-    $('select').selectric();
+    $('select').selectric({
+      disableOnMobile: false,
+      nativeOnMobile: false
+    });
   });
