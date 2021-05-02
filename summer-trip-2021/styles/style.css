@@ -344,6 +344,10 @@ button:focus {
     display: none;
 }
 
+.o-none {
+    opacity: 0;
+}
+
 
 @media (max-width: 375px) {
     .index-page-body {
