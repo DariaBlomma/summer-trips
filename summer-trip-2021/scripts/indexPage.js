@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //show info about characters
   const showInfo = () => {
-    const charactersInfoItems = document.querySelectorAll('.characters-info__item');
+    const charactersInfoItems = document.querySelectorAll('.characters-info__item'),
+          selectWrapper = document.querySelector('.select-wrapper');
+
     $('select').on('selectric-change', () => {
       const reg = new RegExp(`^${$('select').val()}`);
       charactersInfoItems.forEach(item => {
@@ -17,6 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
         item.classList.add('o-none');
         if (regCheck) {
           item.classList.remove('o-none');
+          if (screen.width < 375) {
+            selectWrapper.classList.remove('right');
+            if ($('select').val() === 'Thanos') {
+              selectWrapper.classList.add('right');
+            }
+          }
         }
       })
     })

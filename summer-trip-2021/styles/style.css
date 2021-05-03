@@ -232,7 +232,7 @@ button:focus {
 .select-wrapper {
     position: absolute;
     top: 100px;
-    left: 20px;
+    /* left: 20px; */
     z-index: 2;
     background-color: rgba(255, 255, 255, 0.8);
     max-width: 150px;
@@ -243,17 +243,31 @@ button:focus {
     box-shadow: 0 0 5px rgba(0,0,0,0.6), 0 0 16px rgba(0,0,0,0.75) inset;
 }
 
+.select-wrapper.left {
+    left: 20px;
+}
+
+.select-wrapper.right {
+    left: auto;
+    right: 20px;
+}
+
 
 .characters-info {
     display: grid;
     grid-template-columns: repeat(10,1fr);
-    grid-template-rows: repeat(5, min-content);
+    /* grid-template-rows: repeat(5, min-content);
     grid-template-areas: 
     '. . thanos thanos  . . . . strange strange'
     'captain captain captain . . thor thor thor strange strange'
     '. ironMan ironMan ironMan ironMan . . starLord starLord starLord'
     'romanoff romanoff romanoff romanoff . . . gamora gamora gamora'
-    'hulk hulk hulk . . spiderman spiderman . . .';
+    'hulk hulk hulk . . spiderman spiderman . . .'; */
+    grid-template-rows: repeat(5, min-content);
+    grid-template-areas: 
+    '. . thanos thanos  . . . . strange strange'
+    'captain captain captain . . . thor thor strange strange'
+    'romanoff romanoff romanoff romanoff . . . starLord starLord starLord';
     position: relative;
     z-index: 1;
     align-items: center;
@@ -281,7 +295,7 @@ button:focus {
 }
 
 .ironMan-info {
-    grid-area: ironMan;
+    grid-area: thanos;
 }
 
 .strange-info {
@@ -305,7 +319,7 @@ button:focus {
 }
 
 .hulk-info {
-    grid-area: hulk;
+    grid-area: captain;
 }
 
 .groot-info {
@@ -313,19 +327,12 @@ button:focus {
 }
 
 .gamora-info {
-    grid-area: gamora;
+    grid-area: starLord;
 }
 
-.mantis-info {
-    grid-area: mantis;
-}
-
-.racoon-info {
-    grid-area: racoon;
-}
 
 .spiderman-info {
-    grid-area: spiderman;
+    grid-area: romanoff;
 }
 
 .active {
@@ -401,10 +408,8 @@ button:focus {
         padding: 0 50px;
     }
 
-
     .select-wrapper {
-        left: auto;
-        right: 20px;
+        max-width: 130px;
     }
 
     .characters-info_text {
@@ -412,43 +417,35 @@ button:focus {
     }
 
     .characters-info {
+        grid-template-rows: repeat(2, min-content);
         grid-template-areas: 
         'thanos thanos thanos thanos  strange strange strange strange strange strange'
-        'thor thor thor thor thor captain captain captain captain captain'
-        'gamora gamora gamora gamora starLord starLord starLord starLord starLord starLord'
-        '. . . . . . spiderman spiderman spiderman spiderman'
-        '. . . . . . spiderman spiderman spiderman spiderman';
+        'thor thor thor thor thor captain captain captain captain captain';
     }
 
 /* это будет меняться по щелчку, некоторые элементы встают на место предыдущих */
-    .captainAmerica-info {
-        display: none;
-    }
-
     .ironMan-info {
         grid-area: captain;
     }
 
-    .thor-info {
-        display: none;
+    .starLord-info {
+        grid-area: captain;
     }
 
     .romanoff-info {
         grid-area: thor;
     }
-    
-    .starLord-info {
-        display: none;
-    }
-
 
     .gamora-info {
-        grid-area: starLord;
-        display: none;
+        grid-area: thor;
     }
 
     .hulk-info {
-        grid-area: starLord;
+        grid-area: captain;
+    }
+
+    .spiderman-info {
+        grid-area: thor;
     }
 }
 
