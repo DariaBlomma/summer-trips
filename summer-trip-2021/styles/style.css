@@ -197,7 +197,7 @@ button:focus {
     z-index: 3;
 }
 
-.popup-content {
+.auth {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -221,7 +221,10 @@ button:focus {
     border-width: 3px;
 }
 
-
+.error-message {
+    color: red;
+    margin: 10px auto;
+}
 
 .label {
     font-size: 12px;
