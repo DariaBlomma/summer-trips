@@ -358,6 +358,100 @@ button:focus {
     opacity: 0;
 }
 
+/* personal page styles */
+.personal-page-body {
+    background-image: url('../images/space.jpg');
+    color: white;
+}
+
+.centered {
+    justify-content: center;
+}
+
+.real-photo {
+    background-image: url('../images/ruslan_real.jpg');
+}
+
+
+.timer {
+    margin-top:3rem;
+    margin-bottom:6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer-action{
+    font-weight:300;
+    font-size:2.2rem;
+}
+
+.timer-numbers{
+    font-size:5rem;
+}
+
+.game-info-wrapper {
+    display: grid;
+    grid-template-areas: 
+    'lessons hws'
+    'points points';
+    justify-content: center;
+}
+
+.game-info-wrapper div {
+    padding: 10px;
+}
+
+.lessons-wrapper {
+    grid-area: lessons;
+}
+
+.hws-wrapper {
+    grid-area: hws;
+}
+
+ol {
+    list-style-position: inside;
+}
+
+li {
+    padding: 5px;
+}
+
+ol a {
+    color: #b0d0ec;
+}
+.points-wrapper {
+    grid-area: points;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-3.light {
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #ffffff29;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 5px;
+}
+
+.total {
+    background-color: #00ffff54;
+}
+
+.number {
+    background-color: #f5f5dc66;
+}
+
 
 @media (max-width: 375px) {
     .index-page-body {

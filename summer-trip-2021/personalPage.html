@@ -5,8 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Page</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
-    <h1>Personal Page</h1>
+<body class="personal-page-body">
+    <header class="index-page-header">
+        <div class="avatar-wrapper icon real-photo"></div>
+        <h1 class="main-title centered">My name-my hero</h1>
+        <div class="avatar-wrapper icon"></div>
+    </header>
+    <main>
+        <div class="timer">
+            <div class="timer-title">
+            </div>
+            <div class="timer-action">
+                Time to win
+            </div>
+            <div class="timer-numbers" id="timer">
+                <span id="timer-hours">19</span>
+                <span>:</span>
+                <span id="timer-minutes">45</span>
+                <span>:</span>
+                <span id="timer-seconds">12</span>
+            </div>
+        </div>
+        <div class='game-info-wrapper'>
+            <div class='lessons-wrapper'>
+                <h3 class='title-3 light'>Lessons</h3>
+                <ol class='lessons'>
+                    <li><a href='#'>Lesson 1</a></li>
+                    <li><a href='#'>Lesson 2</a></li>
+                </ol>
+            </div>
+            <div class='hws-wrapper'>
+                <h3 class="title-3 light">Homeworks</h3>
+                <ol class='hws'>
+                    <li><a href='#'>Hw 1</a></li>
+                    <li><a href='#'>Hw 2</a></li>
+                </ol>
+            </div>
+            <div class='points-wrapper'>
+                <h3 class='title-3 light'>Points</h3>
+                <table class='points'>
+                    <thead>
+                        <tr>
+                            <th class='number'>Number</th>
+                            <th>Lesson</th>
+                            <th>HW</th>
+                            <th>Hints</th>
+                            <th>Tests</th>
+                            <th class='total'>Total</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <th class='number'>1</th>
+                        <th>12</th>
+                        <th>10</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th class='total'>22</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
 </body>
 </html>
