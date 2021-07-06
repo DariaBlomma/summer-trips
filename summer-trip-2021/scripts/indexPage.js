@@ -79,11 +79,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
                     }
                 })
                 .then(() => {
-                    setTimeout(() => {
-                        console.log('in timeout');
-                        // authorization($('select').val());
-                    }, 9000);
-                    
+                    authorization($('select').val());
                 })
                 .catch(showError);
         });

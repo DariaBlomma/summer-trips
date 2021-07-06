@@ -7,10 +7,8 @@
 $json = file_get_contents('php://input');
 // data is object
 $data = json_decode($json);
-if ($data !== null) {
-    // var_dump($data);
-    // обратились к свойству объекта
-        $name = $data->real_name;
+
+
 
 	//Устанавливаем доступы к базе данных:
         $host = '127.0.0.1';
@@ -45,14 +43,13 @@ if ($data !== null) {
         FOREIGN KEY (player_id) REFERENCES players (person_id)
         )");
     
+    if ($data !== null) {
+    // обратились к свойству объекта
+        $name = $data->real_name;
     // записываем игрока при его регистрации
         echo $name;
-        $mysqli->query("INSERT INTO players(first_name) VALUES (
-            'john'
-        )");
-        $mysqli->query("INSERT INTO players(first_name) VALUES ($name)");
+        $mysqli->query("INSERT INTO players(first_name) VALUES ('$name')");
     }
-
 
     // mysqli_close($mysqli);
 ?>
