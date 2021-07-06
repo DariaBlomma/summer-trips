@@ -17,12 +17,12 @@
     
     <div class="popup-wrapper d-none">
         <div class="popup-content">
-            <form class="auth">
+            <form action='server.php' method='post' class="auth">
                 <input type="text" name="real_name" placeholder="your real name" id="real_name" class="input-form">
                 <label for="password" class="label">Your password is the name of the chosen character</label>
                 <input type="text" name="password" placeholder="your password" id="password" class="input-form">
                 <p class='error-message d-none'>The password is false. Please try again</p>
-                <button type="button" class="submit"><h3 class="title-3">Submit</h3></button>
+                <button type='submit' class="submit"><h3 class="title-3">Submit</h3></button>
             </form>
         </div>
     </div>

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
             nativeOnMobile: false
         });
     });
-// localStorage.removeItem('Daria');
+    // localStorage.removeItem('Daria');
     let coins = 0,
         mistakes = 0;
     const createCard = (realName, heroName, points, date) => {
@@ -43,6 +43,53 @@ document.addEventListener('DOMContentLoaded', () =>  {
     };
 
     showInfo();
+    const sendForm = () => {
+        const form = document.querySelector('.auth'),
+            realName = document.getElementById('real_name').value,
+            showError = error => {
+                console.error(error);
+            };
+// console.log(realName);
+        const postData = body =>  fetch('./db.php', {
+            method: 'POST',
+            header: {
+                'Content-Type': 'application/json'
+            },
+            // body: realName       
+            body: JSON.stringify(body)
+        });
+
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            console.log('formData: ', formData);
+            // const body = realName;
+            // console.log('body: ', body);
+            const body = {};
+            formData.forEach((val, key) => {
+                body[key] = val;
+                console.log('val: ', val);
+                console.log('body[key]: ', body[key]);
+            });
+
+            postData(body)
+                .then(response => {
+                    if (response.status !== 200) {
+                        throw new Error('network status is not 200');
+                    }
+                })
+                .then(() => {
+                    setTimeout(() => {
+                        console.log('in timeout');
+                        // authorization($('select').val());
+                    }, 9000);
+                    
+                })
+                .catch(showError);
+        });
+
+
+    };
     // проверка правильности пароля и переадресация в личный кабинет
     const authorization = pass => {
         const errorMessage = document.querySelector('.error-message'),
@@ -102,7 +149,8 @@ document.addEventListener('DOMContentLoaded', () =>  {
 
             if (!popupWrapper.classList.contains('d-none')) {
                 if (target.closest('.submit')) {
-                    authorization($('select').val());
+                    sendForm();
+                    // authorization($('select').val());
                 }
                 if (target.closest('.popup-content') === null && !target.closest('.choose-character')) {
                     popupWrapper.classList.add('d-none');
@@ -115,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
     };
 
     togglePopup();
+
 
 
 
