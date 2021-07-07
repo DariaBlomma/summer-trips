@@ -41,52 +41,9 @@ document.addEventListener('DOMContentLoaded', () =>  {
             });
         });
     };
-
     showInfo();
-    const sendForm = () => {
-        const form = document.querySelector('.auth'),
-            realName = document.getElementById('real_name').value,
-            showError = error => {
-                console.error(error);
-            };
-// console.log(realName);
-        const postData = body =>  fetch('./db.php', {
-            method: 'POST',
-            header: {
-                'Content-Type': 'application/json'
-            },
-            // body: realName       
-            body: JSON.stringify(body)
-        });
 
-        form.addEventListener('submit', event => {
-            event.preventDefault();
-            const formData = new FormData(form);
-            console.log('formData: ', formData);
-            // const body = realName;
-            // console.log('body: ', body);
-            const body = {};
-            formData.forEach((val, key) => {
-                body[key] = val;
-                console.log('val: ', val);
-                console.log('body[key]: ', body[key]);
-            });
-
-            postData(body)
-                .then(response => {
-                    if (response.status !== 200) {
-                        throw new Error('network status is not 200');
-                    }
-                })
-                .then(() => {
-                    authorization($('select').val());
-                })
-                .catch(showError);
-        });
-
-
-    };
-    // проверка правильности пароля и переадресация в личный кабинет
+    // проверка правильности пароля, начисление балллов и переадресация в личный кабинет
     const authorization = pass => {
         const errorMessage = document.querySelector('.error-message'),
             passInput = document.getElementById('password'),
@@ -115,6 +72,50 @@ document.addEventListener('DOMContentLoaded', () =>  {
             mistakes = 1;
             createCard(realNameInput.value.trim(), pass, coins);
         }
+    };
+
+    // отправляем в php данные об игроке - имя и баллы
+    const sendForm = () => {
+        const form = document.querySelector('.auth'),
+            realName = document.getElementById('real_name').value,
+            showError = error => {
+                console.error(error);
+            };
+
+        const postData = body =>  fetch('./db.php', {
+            method: 'POST',
+            header: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        });
+
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+            // здесь начисляются баллы
+            authorization($('select').val());
+            // const formData = new FormData(form);
+
+            // const body = {};
+            const body = {
+                'real_name': realName,
+                coins,
+            };
+            console.log(body);
+            // formData.forEach((val, key) => {
+            //     body[key] = val;
+            //     console.log('val: ', val);
+            //     console.log('body[key]: ', body[key]);
+            // });
+
+            postData(body)
+                .then(response => {
+                    if (response.status !== 200) {
+                        throw new Error('network status is not 200');
+                    }
+                })
+                .catch(showError);
+        });
     };
     // обработка инпутов в форме в попапе для авторизации
     const validation = () => {
@@ -146,7 +147,6 @@ document.addEventListener('DOMContentLoaded', () =>  {
             if (!popupWrapper.classList.contains('d-none')) {
                 if (target.closest('.submit')) {
                     sendForm();
-                    // authorization($('select').val());
                 }
                 if (target.closest('.popup-content') === null && !target.closest('.choose-character')) {
                     popupWrapper.classList.add('d-none');
@@ -155,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () =>  {
                 }
             }
         });
-
     };
 
     togglePopup();

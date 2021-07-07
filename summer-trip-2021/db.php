@@ -42,13 +42,17 @@ $data = json_decode($json);
         PRIMARY KEY (lesson_id),
         FOREIGN KEY (player_id) REFERENCES players (person_id)
         )");
-    
+
     if ($data !== null) {
     // обратились к свойству объекта
         $name = $data->real_name;
-    // записываем игрока при его регистрации
-        echo $name;
+        $coins = $data->coins;
+    // записываем игрока и баллы со страницы при его регистрации
         $mysqli->query("INSERT INTO players(first_name) VALUES ('$name')");
+
+        $mysqli->query("SELECT person_id FROM players WHERE first_name = '$name'");
+        $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
+        ((SELECT person_id FROM players WHERE first_name = '$name'), 1, '$coins')");
     }
 
     // mysqli_close($mysqli);
