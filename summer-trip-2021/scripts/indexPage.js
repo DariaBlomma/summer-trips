@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () =>  {
     });
     // localStorage.removeItem('Daria');
     let coins = 0,
-        mistakes = 0;
+        mistakes = 0,
+        users = 0;
     const createCard = (realName, heroName, points, date) => {
         const playerCard = {
             name: realName,
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
             date: '1 august'
         };
         localStorage.setItem(`${realName}`, JSON.stringify(playerCard));
+        localStorage.setItem('currentUser', JSON.stringify(realName));
     };
 
     //show info about characters
@@ -58,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
                 coins = 1;
             }
             createCard(realNameInput.value.trim(), pass, coins);
-            window.location.href = 'personalPage.html';
+            window.location.href = 'personalPage.php';
             popupWrapper.classList.add('d-none');
             selectWrapper.classList.remove('d-none');
             charactersInfo.classList.remove('d-none');
@@ -75,14 +77,14 @@ document.addEventListener('DOMContentLoaded', () =>  {
     };
 
     // отправляем в php данные об игроке - имя и баллы
-    const sendForm = () => {
+    const sendUserInfo = () => {
         const form = document.querySelector('.auth'),
             realName = document.getElementById('real_name').value,
             showError = error => {
                 console.error(error);
             };
 
-        const postData = body =>  fetch('./db.php', {
+        const postData = body =>  fetch('./personalPage.php', {
             method: 'POST',
             header: {
                 'Content-Type': 'application/json'
@@ -92,21 +94,15 @@ document.addEventListener('DOMContentLoaded', () =>  {
 
         form.addEventListener('submit', event => {
             event.preventDefault();
+            users++;
             // здесь начисляются баллы
             authorization($('select').val());
-            // const formData = new FormData(form);
-
-            // const body = {};
             const body = {
                 'real_name': realName,
                 coins,
+                users,
             };
             console.log(body);
-            // formData.forEach((val, key) => {
-            //     body[key] = val;
-            //     console.log('val: ', val);
-            //     console.log('body[key]: ', body[key]);
-            // });
 
             postData(body)
                 .then(response => {
@@ -146,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
 
             if (!popupWrapper.classList.contains('d-none')) {
                 if (target.closest('.submit')) {
-                    sendForm();
+                    sendUserInfo();
                 }
                 if (target.closest('.popup-content') === null && !target.closest('.choose-character')) {
                     popupWrapper.classList.add('d-none');
@@ -158,8 +154,4 @@ document.addEventListener('DOMContentLoaded', () =>  {
     };
 
     togglePopup();
-
-
-
-
 });

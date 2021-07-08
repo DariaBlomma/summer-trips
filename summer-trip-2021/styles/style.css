@@ -452,6 +452,9 @@ th, td {
     background-color: #f5f5dc66;
 }
 
+.bold {
+    font-weight: bold;
+}
 
 @media (max-width: 375px) {
     .index-page-body {
