@@ -1,4 +1,4 @@
-                <!-- чтобы создать базы данных:
+<!-- чтобы создать базы данных:
 1.Включить в настройках нужный модуль
 2. Логин root, пароль root
 3. Проверить вход можно через adminer - дополнительно -->
@@ -8,14 +8,18 @@ $json = file_get_contents('php://input');
 // data is object
 $data = json_decode($json);
 
-
-
 	//Устанавливаем доступы к базе данных:
         $host = '127.0.0.1';
 		//  $host = 'localhost'; //имя хоста, на локальном компьютере это localhost
 		$user = 'root'; //имя пользователя, по умолчанию это root
 		$password = 'root'; //пароль, по умолчанию пустой
 		$db_name = 'avengers'; //имя базы данных
+
+        // для хостинга спринтхост
+        // $host = 'localhost'; 
+		// $user = 'f0497458_root'; 
+		// $password = 'root'; 
+		// $db_name = 'f0497458_avengers'; 
 
 	//Соединяемся с базой данных используя наши доступы:
         $mysqli = new mysqli($host, $user, $password, $db_name);
@@ -42,31 +46,22 @@ $data = json_decode($json);
         PRIMARY KEY (lesson_id),
         FOREIGN KEY (player_id) REFERENCES players (person_id)
         )");
-
-    // $mysqli->query("DROP TABLE IF EXISTS current");
     $mysqli->query("CREATE TABLE current(
         id INT,
         user VARCHAR(20),
         PRIMARY KEY (id)
         )");
-    // $logged = $mysqli->query("SELECT count(*) FROM current");
+    $mysqli->query("INSERT INTO current(id) VALUES (1)");
+
     if ($data !== null) {
     // обратились к свойству объекта
         $name = $data->real_name;
         $coins = $data->coins;
-        $users = $data->users;
     // записываем игрока и баллы со страницы при его регистрации
         $mysqli->query("INSERT INTO players(first_name) VALUES ('$name')");
-        // current user
-        if ($users > 1) {
-            $mysqli->query("UPDATE current SET id = 1, user = '$name'");
-        } else {
-            $mysqli->query("INSERT INTO current(id, user) VALUES (1, '$name')");
-        }
-        
-        // $mysqli->query("UPDATE current SET user = '$name'");
+    // current user
+        $mysqli->query("UPDATE current SET id = 1, user = '$name'");
 
-        // $mysqli->query("SELECT person_id FROM players WHERE first_name = '$name'");
         $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
         ((SELECT person_id FROM players WHERE first_name = '$name'), 1, '$coins')");
     }

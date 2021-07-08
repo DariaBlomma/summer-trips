@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
     });
     // localStorage.removeItem('Daria');
     let coins = 0,
-        mistakes = 0,
-        users = 0;
+        mistakes = 0;
     const createCard = (realName, heroName, points, date) => {
         const playerCard = {
             name: realName,
@@ -59,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () =>  {
             if (mistakes === 0) {
                 coins = 1;
             }
+            // меняем тип кнопки на submit для отправки данныъх
+            changeBtnType();
+            sendUserInfo();
             createCard(realNameInput.value.trim(), pass, coins);
             window.location.href = 'personalPage.php';
             popupWrapper.classList.add('d-none');
@@ -94,13 +96,9 @@ document.addEventListener('DOMContentLoaded', () =>  {
 
         form.addEventListener('submit', event => {
             event.preventDefault();
-            users++;
-            // здесь начисляются баллы
-            authorization($('select').val());
             const body = {
                 'real_name': realName,
                 coins,
-                users,
             };
             console.log(body);
 
@@ -142,7 +140,8 @@ document.addEventListener('DOMContentLoaded', () =>  {
 
             if (!popupWrapper.classList.contains('d-none')) {
                 if (target.closest('.submit')) {
-                    sendUserInfo();
+                // здесь начисляются баллы
+                    authorization($('select').val());
                 }
                 if (target.closest('.popup-content') === null && !target.closest('.choose-character')) {
                     popupWrapper.classList.add('d-none');
@@ -154,4 +153,9 @@ document.addEventListener('DOMContentLoaded', () =>  {
     };
 
     togglePopup();
+
+    const changeBtnType = () => {
+        const btn = document.querySelector('.submit');
+        btn.type = 'submit';
+    };
 });
