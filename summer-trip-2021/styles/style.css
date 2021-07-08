@@ -372,6 +372,9 @@ button:focus {
     background-image: url('../images/ruslan_real.jpg');
 }
 
+.shadowed-pic {
+    box-shadow: 0px 0px 30px 22px rgba(255, 255, 255, 0.2);
+}
 
 .timer {
     margin-top:3rem;
@@ -393,8 +396,8 @@ button:focus {
 .game-info-wrapper {
     display: grid;
     grid-template-areas: 
-    'lessons hws'
-    'points points';
+    'lessons hws tasks'
+    'points points points';
     justify-content: center;
 }
 
@@ -408,6 +411,10 @@ button:focus {
 
 .hws-wrapper {
     grid-area: hws;
+}
+
+.additional-tasks-wrapper {
+    grid-area: tasks;
 }
 
 ol {
@@ -456,6 +463,8 @@ th, td {
     font-weight: bold;
 }
 
+
+
 @media (max-width: 375px) {
     .index-page-body {
         background-image: url('../images/avengers_mobile.jpg');
@@ -466,8 +475,7 @@ th, td {
         padding: 0 10px;
     }
 
-
-    .coin-img, .avatar-wrapper {
+    .coin-img, .avatar-wrapper, .shadowed-pic {
         box-shadow: 0px 0px 30px 22px rgba(255, 255, 255, 0.2);
     }
 
@@ -546,6 +554,18 @@ th, td {
 
     .spiderman-info {
         grid-area: thor;
+    }
+    /* personal page */
+    .lowered {
+        padding-top: 10px;
+    }
+
+    .timer-numbers {
+        font-size: 4rem;
+    }
+
+    .timer {
+        margin-bottom: 3rem;
     }
 }
 

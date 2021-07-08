@@ -77,10 +77,9 @@ $data = json_decode($json);
 </head>
 <body class="personal-page-body">
     <header class="index-page-header">
-        <div class="avatar-wrapper icon real-photo"></div>
-        <h1 class="main-title centered"><span class='real-name'></span>-<span class='hero-name'></span></h1>
-        
-        <div class="avatar-wrapper icon"></div>
+        <div class="avatar-wrapper icon real-photo shadowed-pic"></div>
+        <h1 class="main-title centered lowered"><span class='real-name'></span>-<span class='hero-name'></span></h1>
+        <div class="avatar-wrapper icon shadowed-pic"></div>
     </header>
     <main>
         <div class="timer">
@@ -110,6 +109,13 @@ $data = json_decode($json);
                 <ol class='hws'>
                     <li><a href='#'>Hw 1</a></li>
                     <li><a href='#'>Hw 2</a></li>
+                </ol>
+            </div>
+            <div class='additional-tasks-wrapper'>
+                <h3 class="title-3 light">Additional tasks</h3>
+                <ol class='add-tasks'>
+                    <li><a href='#'>Task 1</a></li>
+                    <li><a href='#'>Task 2</a></li>
                 </ol>
             </div>
             <div class='points-wrapper'>
