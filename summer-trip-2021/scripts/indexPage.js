@@ -8,13 +8,14 @@ document.addEventListener('DOMContentLoaded', () =>  {
     });
     // localStorage.removeItem('Daria');
     let coins = 0,
-        mistakes = 0;
-    const createCard = (realName, heroName, points, date) => {
+        mistakes = 0,
+        dateEnd;
+    const createCard = (realName, heroName, points, dateEnd) => {
         const playerCard = {
             name: realName,
             hero: heroName,
             points,
-            date: '1 august'
+            dateEnd,
         };
         localStorage.setItem(`${realName}`, JSON.stringify(playerCard));
         localStorage.setItem('currentUser', JSON.stringify(realName));
@@ -58,10 +59,14 @@ document.addEventListener('DOMContentLoaded', () =>  {
             if (mistakes === 0) {
                 coins = 1;
             }
+
+            dateEnd = new Date();
+            dateEnd.setMonth(dateEnd.getMonth() + 2);
+            
             // меняем тип кнопки на submit для отправки данныъх
             changeBtnType();
             sendUserInfo();
-            createCard(realNameInput.value.trim(), pass, coins);
+            createCard(realNameInput.value.trim(), pass, coins, dateEnd.getTime());
             window.location.href = 'personalPage.php';
             popupWrapper.classList.add('d-none');
             selectWrapper.classList.remove('d-none');
@@ -74,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () =>  {
         } else {
             errorMessage.classList.remove('d-none');
             mistakes = 1;
-            createCard(realNameInput.value.trim(), pass, coins);
         }
     };
 
