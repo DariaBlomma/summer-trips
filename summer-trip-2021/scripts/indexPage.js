@@ -73,8 +73,8 @@ document.addEventListener('DOMContentLoaded', () =>  {
             
             generateId();
             // меняем тип кнопки на submit для отправки данныъх
-            changeBtnType();
-            sendUserInfo();
+            // changeBtnType();
+            // sendUserInfo();
             createCard(realNameInput.value.trim(), pass, coins, dateEnd.getTime());
             window.location.href = 'personalPage.php';
             popupWrapper.classList.add('d-none');

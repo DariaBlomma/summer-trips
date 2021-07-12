@@ -30,29 +30,33 @@
     // echo $mysqli->host_info . "\n";
 
     $mysqli->query("CREATE TABLE players(
-        person_id INT AUTO_INCREMENT,
+        -- person_id INT AUTO_INCREMENT,
+        unique_id VARCHAR(10),
         first_name VARCHAR(20),
         last_name VARCHAR(20),
-        unique_id VARCHAR(10),
-        PRIMARY KEY (person_id)
+        
+        -- PRIMARY KEY (person_id)
+        PRIMARY KEY (unique_id)
         )");
     $mysqli->query("CREATE TABLE points(
         lesson_id INT AUTO_INCREMENT,
-        player_id INT,
+        -- player_id INT,
+        player_id VARCHAR(10),
         lesson_number INT,
         lesson_points INT,
         homework INT,
         per_page INT,
         additional_tasks INT,
         PRIMARY KEY (lesson_id),
-        FOREIGN KEY (player_id) REFERENCES players (person_id)
+        -- FOREIGN KEY (player_id) REFERENCES players (person_id)
+        FOREIGN KEY (player_id) REFERENCES players (unique_id)
         )");
     // $mysqli->query("CREATE TABLE current(
     //     id INT,
     //     user VARCHAR(20),
     //     PRIMARY KEY (id)
     //     )");
-    $mysqli->query("INSERT INTO current(id) VALUES (1)");
+    // $mysqli->query("INSERT INTO current(id) VALUES (1)");
 // $result = 0;
 //     if ($data !== null) {
 //     // обратились к свойству объекта
@@ -148,9 +152,8 @@ $json = file_get_contents('php://input');
 var_dump($json);
 // data is object
 $data = json_decode($json);
-if ($data) {
-    var_dump($data);
-}
+var_dump($data);
+
                  ?>
                     <!-- <tr> -->
                         <!-- <th class='number'>1</th> -->
@@ -168,19 +171,26 @@ if ($data) {
             $id = $data->id;
             // $lesson = $data->lesson;
         // записываем игрока и баллы со страницы при его регистрации
-            $mysqli->query("INSERT INTO players(first_name, unique_id) VALUES ('$name', '$id')");
+            $mysqli->query("INSERT INTO players(unique_id, first_name) VALUES ('$id', '$name') 
+                ON DUPLICATE KEY UPDATE unique_id='$id', first_name='$name'");
         // current user
             // $mysqli->query("UPDATE current SET id = 1, user = '$name'");
     
             // $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
             // ((SELECT person_id FROM players WHERE first_name = '$name'), 1, '$coins')");
+            // $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
+            // ((SELECT person_id FROM players WHERE unique_id = '$id'), 1, '$coins')");
             $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
-            ((SELECT person_id FROM players WHERE unique_id = '$id'), 1, '$coins')");
+            ((SELECT unique_id FROM players WHERE unique_id = '$id'), 1, '$coins')");
     
+    // $result = $mysqli->query("SELECT lesson_number, lesson_points, homework, per_page, additional_tasks 
+    // FROM points 
+    // WHERE player_id = 
+    // (SELECT person_id FROM players WHERE unique_id = '$id')");
     $result = $mysqli->query("SELECT lesson_number, lesson_points, homework, per_page, additional_tasks 
     FROM points 
     WHERE player_id = 
-    (SELECT person_id FROM players WHERE unique_id = '$id')");
+    (SELECT unique_id FROM players WHERE unique_id = '$id')");
         $row = $result->fetch_assoc();
         foreach ($result as $row) {
             echo "
