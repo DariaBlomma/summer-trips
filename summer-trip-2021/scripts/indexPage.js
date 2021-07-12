@@ -9,18 +9,26 @@ document.addEventListener('DOMContentLoaded', () =>  {
     // localStorage.removeItem('Daria');
     let coins = 0,
         mistakes = 0,
-        dateEnd;
+        dateEnd,
+        id = '';
     const createCard = (realName, heroName, points, dateEnd) => {
         const playerCard = {
             name: realName,
             hero: heroName,
             points,
             dateEnd,
+            id,
         };
         localStorage.setItem(`${realName}`, JSON.stringify(playerCard));
         localStorage.setItem('currentUser', JSON.stringify(realName));
     };
 
+    const generateId = () => {
+        for (let i = 0; i < 10; i++) {
+            const random = Math.floor(Math.random() * 10);
+            id += String(random);
+        }
+    };
     //show info about characters
     const showInfo = () => {
         const charactersInfoItems = document.querySelectorAll('.characters-info__item'),
@@ -63,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
             dateEnd = new Date();
             dateEnd.setMonth(dateEnd.getMonth() + 2);
             
+            generateId();
             // меняем тип кнопки на submit для отправки данныъх
             changeBtnType();
             sendUserInfo();
@@ -103,6 +112,8 @@ document.addEventListener('DOMContentLoaded', () =>  {
             const body = {
                 'real_name': realName,
                 coins,
+                id,
+                'lesson': 1,
             };
             console.log(body);
 

@@ -3,10 +3,10 @@
 2. Логин root, пароль root
 3. Проверить вход можно через adminer - дополнительно -->
 <?php
-// get json
-$json = file_get_contents('php://input');
-// data is object
-$data = json_decode($json);
+// // get json
+// $json = file_get_contents('php://input');
+// // data is object
+// $data = json_decode($json);
 
 	//Устанавливаем доступы к базе данных:
         $host = '127.0.0.1';
@@ -33,6 +33,7 @@ $data = json_decode($json);
         person_id INT AUTO_INCREMENT,
         first_name VARCHAR(20),
         last_name VARCHAR(20),
+        unique_id VARCHAR(10),
         PRIMARY KEY (person_id)
         )");
     $mysqli->query("CREATE TABLE points(
@@ -46,25 +47,34 @@ $data = json_decode($json);
         PRIMARY KEY (lesson_id),
         FOREIGN KEY (player_id) REFERENCES players (person_id)
         )");
-    $mysqli->query("CREATE TABLE current(
-        id INT,
-        user VARCHAR(20),
-        PRIMARY KEY (id)
-        )");
+    // $mysqli->query("CREATE TABLE current(
+    //     id INT,
+    //     user VARCHAR(20),
+    //     PRIMARY KEY (id)
+    //     )");
     $mysqli->query("INSERT INTO current(id) VALUES (1)");
+// $result = 0;
+//     if ($data !== null) {
+//     // обратились к свойству объекта
+//         $name = $data->real_name;
+//         $coins = $data->coins;
+//         $id = $data->id;
+//         $lesson = $data->lesson;
+//     // записываем игрока и баллы со страницы при его регистрации
+//         $mysqli->query("INSERT INTO players(first_name, unique_id) VALUES ('$name', '$id')");
+//     // current user
+//         // $mysqli->query("UPDATE current SET id = 1, user = '$name'");
 
-    if ($data !== null) {
-    // обратились к свойству объекта
-        $name = $data->real_name;
-        $coins = $data->coins;
-    // записываем игрока и баллы со страницы при его регистрации
-        $mysqli->query("INSERT INTO players(first_name) VALUES ('$name')");
-    // current user
-        $mysqli->query("UPDATE current SET id = 1, user = '$name'");
+//         // $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
+//         // ((SELECT person_id FROM players WHERE first_name = '$name'), 1, '$coins')");
+//         $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
+//         ((SELECT person_id FROM players WHERE unique_id = '$id'), '$lesson', '$coins')");
 
-        $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
-        ((SELECT person_id FROM players WHERE first_name = '$name'), 1, '$coins')");
-    }
+// $result = $mysqli->query("SELECT lesson_number, lesson_points, homework, per_page, additional_tasks 
+// FROM points 
+// WHERE player_id = 
+// (SELECT person_id FROM players WHERE unique_id = '$id')");
+//     }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,6 +97,7 @@ $data = json_decode($json);
             </div>
             <div class="timer-action">
                 Time to win
+
             </div>
             <div class="timer-numbers" id="timer">
                 <span id="timer-hours">19</span>
@@ -131,26 +142,58 @@ $data = json_decode($json);
                             <!-- <th class='total'>Total</th> -->
                         </tr>
                     </thead>
+                    <?php 
+                // get json
+$json = file_get_contents('php://input');
+var_dump($json);
+// data is object
+$data = json_decode($json);
+if ($data) {
+    var_dump($data);
+}
+                 ?>
                     <!-- <tr> -->
                         <!-- <th class='number'>1</th> -->
 <?php
+    // $result = $mysqli->query("SELECT lesson_number, lesson_points, homework, per_page, additional_tasks 
+    // FROM points 
+    // WHERE player_id = 
+    // (SELECT person_id FROM players WHERE first_name = 
+    // (SELECT user FROM current)
+    // )");
+    if ($data !== null) {
+        // обратились к свойству объекта
+            $name = $data->real_name;
+            $coins = $data->coins;
+            $id = $data->id;
+            // $lesson = $data->lesson;
+        // записываем игрока и баллы со страницы при его регистрации
+            $mysqli->query("INSERT INTO players(first_name, unique_id) VALUES ('$name', '$id')");
+        // current user
+            // $mysqli->query("UPDATE current SET id = 1, user = '$name'");
+    
+            // $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
+            // ((SELECT person_id FROM players WHERE first_name = '$name'), 1, '$coins')");
+            $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
+            ((SELECT person_id FROM players WHERE unique_id = '$id'), 1, '$coins')");
+    
     $result = $mysqli->query("SELECT lesson_number, lesson_points, homework, per_page, additional_tasks 
     FROM points 
     WHERE player_id = 
-    (SELECT person_id FROM players WHERE first_name = 
-    (SELECT user FROM current)
-    )");
-    $row = $result->fetch_assoc();
-    foreach ($result as $row) {
-        echo "
-        <tr>
-            <td class='number'>". $row['lesson_number'] . "</td>
-            <td class='to-count'>". $row['lesson_points'] . "</td>
-            <td class='to-count'>". $row['homework'] . "</td>
-            <td class='to-count'>". $row['per_page'] . "</td>
-            <td class='to-count'>". $row['additional_tasks'] . "</td>
-        </tr>";
+    (SELECT person_id FROM players WHERE unique_id = '$id')");
+        $row = $result->fetch_assoc();
+        foreach ($result as $row) {
+            echo "
+            <tr>
+                <td class='number'>". $row['lesson_number'] . "</td>
+                <td class='to-count'>". $row['lesson_points'] . "</td>
+                <td class='to-count'>". $row['homework'] . "</td>
+                <td class='to-count'>". $row['per_page'] . "</td>
+                <td class='to-count'>". $row['additional_tasks'] . "</td>
+            </tr>";
+        }
     }
+
     
 // mysqli_close($mysqli);
 ?>
@@ -166,7 +209,6 @@ $data = json_decode($json);
                             <td class='total bold sum'>22</td>
                         </tr>
                     </tfoot>
-                    
                 </table>
             </div>
         </div>

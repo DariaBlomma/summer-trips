@@ -66,3 +66,40 @@ const  countTimer = deadline => {
 
 // countTimer('01 august 2021');
 countTimer();
+
+const sendUserInfo = () => {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')),
+        personCard = JSON.parse(localStorage.getItem(currentUser)),
+        showError = error => {
+            console.error(error);
+        };
+
+    const postData = body =>  fetch('./personalPage.php', {
+        method: 'POST',
+        header: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    });
+
+    window.addEventListener('load', () => {
+        const body = {
+            'real_name': personCard.name,
+            'coins': personCard.points,
+            'id': personCard.id,
+            'lesson': 1,
+        };
+        // const body = personCard;
+        console.log(body);
+
+        postData(body)
+            .then(response => {
+                if (response.status !== 200) {
+                    throw new Error('network status is not 200');
+                }
+            })
+            .catch(showError);
+    });
+};
+
+sendUserInfo();
