@@ -48,8 +48,9 @@
         per_page INT,
         additional_tasks INT,
         PRIMARY KEY (lesson_id),
+        UNIQUE (player_id, lesson_number),
         -- FOREIGN KEY (player_id) REFERENCES players (person_id)
-        FOREIGN KEY (player_id) REFERENCES players (unique_id)
+        FOREIGN KEY (player_id) REFERENCES players (unique_id) 
         )");
     // $mysqli->query("CREATE TABLE current(
     //     id INT,
@@ -178,10 +179,11 @@ var_dump($data);
     
             // $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
             // ((SELECT person_id FROM players WHERE first_name = '$name'), 1, '$coins')");
-            // $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
-            // ((SELECT person_id FROM players WHERE unique_id = '$id'), 1, '$coins')");
             $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
-            ((SELECT unique_id FROM players WHERE unique_id = '$id'), 1, '$coins')");
+             ((SELECT unique_id FROM players WHERE unique_id = '$id'), 1, '$coins')");
+            // $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
+            // ((SELECT unique_id FROM players WHERE unique_id = '$id'), 1, '$coins')
+            // ON DUPLICATE KEY UPDATE player_id='$id', lesson_number=1, per_page='$coins'");
     
     // $result = $mysqli->query("SELECT lesson_number, lesson_points, homework, per_page, additional_tasks 
     // FROM points 
