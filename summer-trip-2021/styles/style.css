@@ -291,8 +291,6 @@ button:focus {
     margin: 5px 0;
 }
 
-
-
 .thanos-info {
     grid-area: thanos;
 }
@@ -463,7 +461,89 @@ th, td {
     font-weight: bold;
 }
 
+/* lesson 1 */
+.lesson1-body {
+    padding: 10px;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    background-repeat: no-repeat;
+    height: 100%;
+}
 
+.lesson1-header {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.lesson1 {
+    display: grid;
+    grid-template-areas: 
+        'speech speech speech'
+        'img audio test'
+        'img prep test'
+        'decision decision decision'
+        'video video video';
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.hero-speech {
+    grid-area: speech;
+    position: relative;
+    max-width: max-content;
+    margin-bottom: 50px;
+    margin-top: 10px;
+    background-color: #eaa561;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* создание треугольника - tooltip */
+.hero-speech::before {
+	border: 30px solid transparent;
+	border-top-color:#eaa561;
+	position:absolute;
+	top: 100%;
+    left: 40px;
+	content:'';
+}
+
+.hero-speech::after {
+	border:28px solid transparent;
+	border-top-color:#eaa561;
+	position:absolute;
+	top:100%;
+    left: 42px;
+	content:'';
+}
+
+
+.hero-big {
+    grid-area: img;
+    max-width: 100%;
+}
+
+.audio-file {
+    grid-area: audio;
+    color: white;
+}
+
+.prep-ex {
+    grid-area: prep;
+}
+
+.audio-test {
+    grid-area: test;
+}
+
+.first-decision {
+    grid-area: decision;
+}
+
+.video-result {
+    grid-area: video;
+}
 
 @media (max-width: 375px) {
     .index-page-body {

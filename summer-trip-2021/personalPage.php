@@ -226,8 +226,8 @@ var_dump($data);
         </div>
     </main>
     <footer>
-
+    
     </footer>
-    <script src='personalPage.js'></script>
+    <script src='scripts/personalPage.js'></script>
 </body>
 </html>
