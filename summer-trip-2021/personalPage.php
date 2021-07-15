@@ -4,9 +4,9 @@
 3. Проверить вход можно через adminer - дополнительно -->
 <?php
 // // get json
-// $json = file_get_contents('php://input');
+$json = file_get_contents('php://input');
 // // data is object
-// $data = json_decode($json);
+$data = json_decode($json);
 
 	//Устанавливаем доступы к базе данных:
         $host = '127.0.0.1';
@@ -29,7 +29,7 @@
     // }
     // echo $mysqli->host_info . "\n";
 
-    $mysqli->query("CREATE TABLE players(
+    $mysqli->query("CREATE TABLE IF NOT EXISTS players(
         -- person_id INT AUTO_INCREMENT,
         unique_id VARCHAR(10),
         first_name VARCHAR(20),
@@ -38,7 +38,7 @@
         -- PRIMARY KEY (person_id)
         PRIMARY KEY (unique_id)
         )");
-    $mysqli->query("CREATE TABLE points(
+    $mysqli->query("CREATE TABLE IF NOT EXISTS points(
         lesson_id INT AUTO_INCREMENT,
         -- player_id INT,
         player_id VARCHAR(10),
@@ -59,27 +59,33 @@
     //     )");
     // $mysqli->query("INSERT INTO current(id) VALUES (1)");
 // $result = 0;
-//     if ($data !== null) {
-//     // обратились к свойству объекта
-//         $name = $data->real_name;
-//         $coins = $data->coins;
-//         $id = $data->id;
-//         $lesson = $data->lesson;
-//     // записываем игрока и баллы со страницы при его регистрации
-//         $mysqli->query("INSERT INTO players(first_name, unique_id) VALUES ('$name', '$id')");
-//     // current user
-//         // $mysqli->query("UPDATE current SET id = 1, user = '$name'");
+    if ($data !== null) {
+    // обратились к свойству объекта
+        $name = $data->real_name;
+        $coins = $data->coins;
+        $id = $data->id;
+        $lesson = $data->lesson;
+    // записываем игрока и баллы со страницы при его регистрации
+        // $mysqli->query("INSERT INTO players(first_name, unique_id) VALUES ('$name', '$id')");
+            $mysqli->query("INSERT INTO players(unique_id, first_name) VALUES ('$id', '$name') 
+            ON DUPLICATE KEY UPDATE unique_id='$id', first_name='$name'");
+    // current user
+        // $mysqli->query("UPDATE current SET id = 1, user = '$name'");
 
-//         // $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
-//         // ((SELECT person_id FROM players WHERE first_name = '$name'), 1, '$coins')");
-//         $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
-//         ((SELECT person_id FROM players WHERE unique_id = '$id'), '$lesson', '$coins')");
+        // $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
+        // ((SELECT person_id FROM players WHERE first_name = '$name'), 1, '$coins')");
+        // $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
+        // ((SELECT person_id FROM players WHERE unique_id = '$id'), '$lesson', '$coins')");
+            
+            $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
+            ((SELECT unique_id FROM players WHERE unique_id = '$id'), 1, '$coins')
+            ON DUPLICATE KEY UPDATE player_id='$id', lesson_number=1, per_page='$coins'");
 
 // $result = $mysqli->query("SELECT lesson_number, lesson_points, homework, per_page, additional_tasks 
 // FROM points 
 // WHERE player_id = 
 // (SELECT person_id FROM players WHERE unique_id = '$id')");
-//     }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,7 +100,7 @@
     <header class="index-page-header">
         <div class="avatar-wrapper icon real-photo shadowed-pic"></div>
         <h1 class="main-title centered lowered"><span class='real-name'></span>-<span class='hero-name'></span></h1>
-        <div class="avatar-wrapper icon shadowed-pic"></div>
+        <div class="avatar-wrapper icon shadowed-pic hero-photo"></div>
     </header>
     <main>
         <div class="timer">
@@ -149,12 +155,19 @@
                     </thead>
                     <?php 
                 // get json
-$json = file_get_contents('php://input');
-var_dump($json);
-// data is object
-$data = json_decode($json);
-var_dump($data);
-
+// $json = file_get_contents('php://input');
+// var_dump($json);
+// // data is object
+// $data = json_decode($json);
+// var_dump($data);
+if($_SERVER["REQUEST_METHOD"]=="POST") {
+    echo 'post ';
+    var_dump($data);
+} else {
+    // sleep(3);
+    echo 'not post';
+    var_dump($data);
+}
                  ?>
                     <!-- <tr> -->
                         <!-- <th class='number'>1</th> -->
@@ -167,20 +180,20 @@ var_dump($data);
     // )");
     if ($data !== null) {
         // обратились к свойству объекта
-            $name = $data->real_name;
-            $coins = $data->coins;
+            // $name = $data->real_name;
+            // $coins = $data->coins;
             $id = $data->id;
             // $lesson = $data->lesson;
         // записываем игрока и баллы со страницы при его регистрации
-            $mysqli->query("INSERT INTO players(unique_id, first_name) VALUES ('$id', '$name') 
-                ON DUPLICATE KEY UPDATE unique_id='$id', first_name='$name'");
+            // $mysqli->query("INSERT INTO players(unique_id, first_name) VALUES ('$id', '$name') 
+            //     ON DUPLICATE KEY UPDATE unique_id='$id', first_name='$name'");
         // current user
             // $mysqli->query("UPDATE current SET id = 1, user = '$name'");
     
             // $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
             // ((SELECT person_id FROM players WHERE first_name = '$name'), 1, '$coins')");
-            $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
-             ((SELECT unique_id FROM players WHERE unique_id = '$id'), 1, '$coins')");
+            // $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
+            //  ((SELECT unique_id FROM players WHERE unique_id = '$id'), 1, '$coins')");
             // $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
             // ((SELECT unique_id FROM players WHERE unique_id = '$id'), 1, '$coins')
             // ON DUPLICATE KEY UPDATE player_id='$id', lesson_number=1, per_page='$coins'");

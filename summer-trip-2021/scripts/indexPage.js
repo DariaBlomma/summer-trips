@@ -70,13 +70,12 @@ document.addEventListener('DOMContentLoaded', () =>  {
 
             dateEnd = new Date();
             dateEnd.setMonth(dateEnd.getMonth() + 2);
-            
             generateId();
             // меняем тип кнопки на submit для отправки данныъх
-            // changeBtnType();
-            // sendUserInfo();
+            changeBtnType();
+            sendUserInfo();
             createCard(realNameInput.value.trim(), pass, coins, dateEnd.getTime());
-            window.location.href = 'personalPage.php';
+            // window.location.href = 'personalPage.php';
             popupWrapper.classList.add('d-none');
             selectWrapper.classList.remove('d-none');
             charactersInfo.classList.remove('d-none');
