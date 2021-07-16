@@ -45,17 +45,21 @@ $mysqli->query("CREATE TABLE IF NOT EXISTS points(
 
 if ($data !== null) {
 // обратились к свойству объекта
-    $name = $data->real_name;
-    $coins = $data->coins;
-    // $id = $data->id;
+    $name = $data->name;
     $lesson = $data->lesson;
+    $points = $data->points;
+    // coins is per page
+    $coins = $data->coins;
+    $hw = $data->hw;
+    $add_task = $data->additional;
 // записываем игрока и баллы со страницы при его регистрации
     $mysqli->query("INSERT INTO players(unique_id, first_name) VALUES ('$id', '$name') 
     ON DUPLICATE KEY UPDATE unique_id='$id', first_name='$name'");
-    
-    $mysqli->query("INSERT INTO points(player_id, lesson_number, per_page) VALUES
-    ((SELECT unique_id FROM players WHERE unique_id = '$id'), 1, '$coins')
-    ON DUPLICATE KEY UPDATE player_id='$id', lesson_number=1, per_page='$coins'");
+
+    $mysqli->query("INSERT INTO points
+    (player_id, lesson_number, lesson_points, homework, per_page, additional_tasks) VALUES
+        ((SELECT unique_id FROM players WHERE unique_id = '$id'),'$lesson', '$points', '$hw', '$coins', '$add_task')
+        ON DUPLICATE KEY UPDATE player_id='$id', lesson_number='$lesson', lesson_points='$points', homework='$hw', per_page='$coins', additional_tasks='$add_task'");
 }
 ?>
 
@@ -81,13 +85,14 @@ if ($data !== null) {
             <div class="timer-action">
                 Time to win
             </div>
-            <div class="timer-numbers" id="timer">
-                <span id="timer-hours">19</span>
-                <span>:</span>
-                <span id="timer-minutes">45</span>
-                <span>:</span>
-                <span id="timer-seconds">12</span>
-            </div>
+                <span class='timer-numbers' id="timer-hours">19</span>
+                <span class='timer-numbers dot1'>:</span>
+                <span class='timer-numbers' id="timer-minutes">45</span>
+                <span class='timer-numbers dot2'>:</span>
+                <span class='timer-numbers' id="timer-seconds">12</span>
+                <span class='h-text'>hours</span>
+                <span class='m-text'>minutes</span>
+                <span class='s-text'>seconds</span>
         </div>
         <div class='game-info-wrapper'>
             <div class='lessons-wrapper'>
@@ -125,14 +130,6 @@ if ($data !== null) {
                         </tr>
                     </thead>
 <?php 
-if($_SERVER["REQUEST_METHOD"]=="POST") {
-    echo 'post ';
-    var_dump($data);
-} else {
-    // sleep(3);
-    echo 'not post';
-    var_dump($data);
-}
 echo $id;
 ?>
                     <!-- <tr> -->

@@ -1,3 +1,14 @@
+const getUserCard = () => JSON.parse(localStorage.getItem('currentUser'));
+
+const redirectNewUser = () => {
+    const userCard = getUserCard();
+    if (!userCard) {
+        // проверить путь на хостинге
+        window.location.href = '/';
+    }
+};
+redirectNewUser();
+
 const countTotal = () => {
     const total = document.querySelector('.sum'),
         toCounts = document.querySelectorAll('.to-count');
@@ -12,10 +23,9 @@ countTotal();
 const writeUser = () => {
     const name = document.querySelector('.real-name'),
         hero = document.querySelector('.hero-name'),
-        currentUser = JSON.parse(localStorage.getItem('currentUser')),
-        playerCard = JSON.parse(localStorage.getItem(currentUser));
+        playerCard = getUserCard();
 
-    name.textContent = currentUser;
+    name.textContent = playerCard.name;
     hero.textContent = playerCard.hero;
 };
 writeUser();
@@ -24,8 +34,7 @@ const  countTimer = deadline => {
     const timerHours = document.querySelector('#timer-hours'),
         timerMinutes = document.querySelector('#timer-minutes'),
         timerSeconds = document.querySelector('#timer-seconds');
-    const  currentUser = JSON.parse(localStorage.getItem('currentUser')),
-        playerCard = JSON.parse(localStorage.getItem(currentUser));
+    const  playerCard = getUserCard();
 
 
     function getTimeRemaining() {
@@ -67,49 +76,53 @@ const  countTimer = deadline => {
 // countTimer('01 august 2021');
 countTimer();
 
-// const sendUserInfo = () => {
-//     const currentUser = JSON.parse(localStorage.getItem('currentUser')),
-//         personCard = JSON.parse(localStorage.getItem(currentUser)),
-//         showError = error => {
-//             console.error(error);
-//         };
+const sendUserInfo = () => {
+    const personCard = getUserCard(),
+        showError = error => {
+            console.error(error);
+        };
 
-//     const postData = body =>  fetch('./personalPage.php', {
-//         method: 'POST',
-//         header: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(body)
-//     });
+    const postData = body =>  fetch('./personalPage.php', {
+        method: 'POST',
+        header: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    });
 
-//     window.addEventListener('load', () => {
-//         const body = {
-//             'real_name': personCard.name,
-//             'coins': personCard.points,
-//             'id': personCard.id,
-//             'lesson': 1,
-//         };
-//         // const body = personCard;
-//         console.log(body);
+    window.addEventListener('load', () => {
+        // const body = {'
+        //     'real_name': personCard.name,
+        //     'coins': personCard.points,
+        //     'lesson': personCard.lesson,
+        // };
+        const body = personCard;
+        console.log(body);
 
-//         postData(body)
-//             .then(response => {
-//                 if (response.status !== 200) {
-//                     throw new Error('network status is not 200');
-//                 }
-//             })
-//             .catch(showError);
-//     });
-// };
+        postData(body)
+            .then(response => {
+                if (response.status !== 200) {
+                    throw new Error('network status is not 200');
+                }
+            })
+            .catch(showError);
+    });
+};
 
-// sendUserInfo();
+sendUserInfo();
 
 const changeAvatar = () => {
     const realPhoto = document.querySelector('.real-photo'),
-        heroPhoto = document.querySelector('.hero-photo');
-        console.log(realPhoto, heroPhoto);
-        // дописать класс для аватарки выбранного персонажа
-        // заменить в localstorage название карточки игрока на current user,  записывать и выбранного персонажа
+        heroPhoto = document.querySelector('.hero-photo'),
+        playerCard = getUserCard();
+    let  heroComplexName = playerCard.hero.toLowerCase();
+
+    if (heroComplexName === 'dr. stephen strange') {
+        heroComplexName = 'dr_strange';
+    }
+    heroComplexName = heroComplexName.replace(' ', '_');
+    realPhoto.setAttribute('style', `background-image: url('./images/${playerCard.name}_real.jpg')`);
+    heroPhoto.setAttribute('style', `background-image: url('./images/${heroComplexName}_avatar.jpg')`);
 };
 
 changeAvatar();

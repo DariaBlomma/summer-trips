@@ -6,29 +6,40 @@ document.addEventListener('DOMContentLoaded', () =>  {
             nativeOnMobile: false
         });
     });
-    // localStorage.removeItem('Daria');
+
+const redirectLogged = () => {
+    const userCard = localStorage.getItem('currentUser');
+    if (userCard) {
+        window.location.href = 'personalPage.php';
+    }
+};
+// redirectLogged();
+
     let coins = 0,
         mistakes = 0,
-        dateEnd,
-        id = '';
-    const createCard = (realName, heroName, points, dateEnd) => {
+        dateEnd;
+    const lesson = 1;
+    const createCard = (realName, heroName, dateEnd, coins = 0, points = 0, hw = 0, additional = 0) => {
         const playerCard = {
             name: realName,
             hero: heroName,
-            points,
             dateEnd,
-            id,
+            // lesson: {
+            //     lessonNumber,
+            //     points,
+            //     perPage,
+            //     hw,
+            //     addTask,
+            // },
+            lesson,
+            points,
+            coins,
+            hw,
+            additional,
         };
-        localStorage.setItem(`${realName}`, JSON.stringify(playerCard));
-        localStorage.setItem('currentUser', JSON.stringify(realName));
+        localStorage.setItem('currentUser', JSON.stringify(playerCard));
     };
 
-    const generateId = () => {
-        for (let i = 0; i < 10; i++) {
-            const random = Math.floor(Math.random() * 10);
-            id += String(random);
-        }
-    };
     //show info about characters
     const showInfo = () => {
         const charactersInfoItems = document.querySelectorAll('.characters-info__item'),
@@ -70,12 +81,12 @@ document.addEventListener('DOMContentLoaded', () =>  {
 
             dateEnd = new Date();
             dateEnd.setMonth(dateEnd.getMonth() + 2);
-            generateId();
+            // generateId();
             // меняем тип кнопки на submit для отправки данныъх
-            changeBtnType();
-            sendUserInfo();
-            createCard(realNameInput.value.trim(), pass, coins, dateEnd.getTime());
-            // window.location.href = 'personalPage.php';
+            // changeBtnType();
+            // sendUserInfo();
+            createCard(realNameInput.value.trim(), pass, dateEnd.getTime(), coins);
+            window.location.href = 'personalPage.php';
             popupWrapper.classList.add('d-none');
             selectWrapper.classList.remove('d-none');
             charactersInfo.classList.remove('d-none');

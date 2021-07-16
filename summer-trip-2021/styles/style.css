@@ -377,18 +377,59 @@ button:focus {
 .timer {
     margin-top:3rem;
     margin-bottom:6rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-areas: 
+    'title title title title title'
+    'hours dot1 minutes dot2 seconds'
+    'h_text . m_text . s_text';
+    justify-content: center;
 }
 
 .timer-action{
     font-weight:300;
     font-size:2.2rem;
+    grid-area: title;
+    justify-self: center;
+    
 }
 
 .timer-numbers{
     font-size:5rem;
+}
+
+#timer-hours {
+    grid-area: hours;
+}
+
+#timer-minutes {
+    grid-area: minutes;
+}
+
+#timer-seconds {
+    grid-area: seconds;
+}
+
+.dot1 {
+    grid-area: dot1;
+}
+
+.dot2 {
+    grid-area: dot2;
+}
+
+.h-text {
+    grid-area: h_text;
+    justify-self: center;
+}
+
+.m-text {
+    grid-area: m_text;
+    justify-self: center;
+}
+
+.s-text {
+    grid-area: s_text;
+    justify-self: center;
 }
 
 .game-info-wrapper {
