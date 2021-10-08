@@ -103,12 +103,27 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+// import $ from 'jquery';
+
+// let $ = JQuery
+// console.log('$: ', $);
+import $ from 'jquery'
+import '@/jquery.selectric.min.js';
 
 export default {
-  name: 'App',
+    name: 'App',
   // components: {
   //   HelloWorld
-  // }
+  // },
+    mounted() {
+        //jquery for select
+        $(() => {
+            $('select').selectric({
+                disableOnMobile: false,
+                nativeOnMobile: false
+            });
+        });
+    }
 }
 </script>
 

@@ -1,5 +1,5 @@
 @import './variables.scss';
-
+@import './selectric.css';
 
 * {
   box-sizing: border-box;
@@ -341,15 +341,15 @@ button:focus {
   }
 
   .index-page-header {
-      padding: 0 10px;
+    padding: 0 10px;
   }
 
   .main-title {
-      font-size: $mobile-primary-title-size;
+    font-size: $mobile-primary-title-size;
   }
 
   .secondary-title {
-      font-size: $mobile-secondary-title-size;
+    font-size: $mobile-secondary-title-size;
   }
 
   button {
@@ -362,46 +362,46 @@ button:focus {
   }
 
   .popup-wrapper {
-      padding: $mobile-popup-padding;
+    padding: $mobile-popup-padding;
   }
 
   .select-wrapper {
-      max-width: 130px;
+    max-width: 130px;
   }
 
   .characters-info_text {
-      font-size: $mobile-card-text-size;
+    font-size: $mobile-card-text-size;
   }
 
   .characters-info {
-      grid-template-rows: repeat(2, min-content);
-      grid-template-areas: 
-      'thanos thanos thanos thanos  strange strange strange strange strange strange'
-      'thor thor thor thor thor captain captain captain captain captain';
+    grid-template-rows: repeat(2, min-content);
+    grid-template-areas: 
+    'thanos thanos thanos thanos  strange strange strange strange strange strange'
+    'thor thor thor thor thor captain captain captain captain captain';
   }
 
 /* это меняется при выборе option  из select, некоторые элементы встают на место предыдущих */
   .ironMan-info {
-      grid-area: captain;
+    grid-area: captain;
   }
 
   .starLord-info {
-      grid-area: captain;
+    grid-area: captain;
   }
 
   .romanoff-info {
-      grid-area: thor;
+    grid-area: thor;
   }
 
   .gamora-info {
-      grid-area: thor;
+    grid-area: thor;
   }
 
   .hulk-info {
-      grid-area: captain;
+    grid-area: captain;
   }
 
   .spiderman-info {
-      grid-area: thor;
+    grid-area: thor;
   }
 }
