@@ -78,30 +78,11 @@
   display: block !important;
 }
 
-
 .selectric-open .selectric {
   border-color: #CCC;
   background: #F0F0F0;
   z-index: 9999;
 }
-
-/* .selectric {
-  background-color: #f5f5f5;
-  background-image: -webkit-linear-gradient(#fff, #e6e6e6);
-  background-image: -o-linear-gradient(#fff, #e6e6e6);
-  background-image: linear-gradient(#fff, #e6e6e6);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
-  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #e6e6e6;
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  border: 1px solid #cccccc;
-  *border: 0;
-  border-bottom-color: #b3b3b3;
-  border-radius: 3px;
-  position: relative;
-} */
 
 .selectric {
   height: 35px;
@@ -109,15 +90,7 @@
   outline: none;
   border: 3px solid #292c30;
   border-radius: 48px;
-  /* background: url(../images/arrow_select.svg), */
-  background:     repeating-linear-gradient(
-      45deg,
-      rgba(145, 153, 153, 0.2),
-      rgba(145, 153, 153, 0.4) 10px,
-      transparent 10px,
-      transparent 20px
-      ),
-      linear-gradient(to top, #020014, #5ea0d6 50%);
+  background: url(../images/arrow_select.svg), $button-background;
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -138,49 +111,12 @@
   min-height: 18px;
 }
 
-/* .selectric .button {
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 30px;
-  height: 30px;
-  color: #BBB;
-  text-align: center;
-  font: 0/0 a;
-  /* IE Fix */
-
-/* 
-.selectric .button:after {
-  content: " ";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 0;
-  height: 0;
-  border: 4px solid transparent;
-  border-top-color: #BBB;
-  border-bottom: none;
-} */
-
 .selectric-focus .selectric {
   border-color: #AAA;
 }
 
-
 .selectric-hover .selectric {
-  /* background: url(../images/arrow_select.svg), */
-  background: repeating-linear-gradient(
-        45deg,
-        rgba(145, 153, 153, 0.2),
-        rgba(145, 153, 153, 0.4) 10px,
-        transparent 10px,
-        transparent 20px
-        ),
-        linear-gradient(to top, #2e2d41, #b8e1ee);
+  background: url(../images/arrow_select.svg), $button-hover-background;
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -204,15 +140,15 @@
   border: 1px solid #C4C4C4;
   z-index: -1;
   box-shadow: 0 0 10px -6px;
-  border-top-left-radius: 28px;
-  border-bottom-left-radius: 28px;
+  border-top-left-radius: $card-border-radius;
+  border-bottom-left-radius: $card-border-radius;
 }
 
 .selectric-items .selectric-scroll {
   height: 100%;
   overflow: auto;
-  border-top-left-radius: 28px;
-  border-bottom-left-radius: 28px;
+  border-top-left-radius: $card-border-radius;
+  border-bottom-left-radius: $card-border-radius;
 }
 
 .selectric-above .selectric-items {
@@ -239,13 +175,12 @@
 }
 
 .selectric-items li:first-child, .selectric-items li:first-child:hover {
-  border-top-left-radius: 28px;
+  border-top-left-radius: $card-border-radius;
 }
 
 .selectric-items li:last-child, .selectric-items li:last-child:hover {
-  border-bottom-left-radius: 28px;
+  border-bottom-left-radius: $card-border-radius;
 }
-
 
 .selectric-items li.selected {
   background: #EFEFEF;
@@ -253,30 +188,12 @@
 }
 
 .selectric-items li.highlighted {
-  /* background: #D0D0D0;
-  color: #444; */
-  background: repeating-linear-gradient(
-        45deg,
-        rgba(145, 153, 153, 0.2),
-        rgba(145, 153, 153, 0.4) 10px,
-        transparent 10px,
-        transparent 20px
-        ),
-        linear-gradient(to top, #e46609, #d6d100);
+  background: $button-active-background;
   color: #dbdbdb;
 }
 
 .selectric-items li:hover {
-  /* background: #F0F0F0;
-  color: #444; */
-  background: repeating-linear-gradient(
-        45deg,
-        rgba(145, 153, 153, 0.2),
-        rgba(145, 153, 153, 0.4) 10px,
-        transparent 10px,
-        transparent 20px
-        ),
-        linear-gradient(to top, #2e2d41, #b8e1ee);
+  background: $button-hover-background;
   color: #dbdbdb;
 }
 
