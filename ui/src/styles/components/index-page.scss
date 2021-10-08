@@ -99,78 +99,6 @@
     right: 20px;
 }
 
-.characters-info {
-    display: grid;
-    grid-template-columns: repeat(10,1fr);
-    grid-template-rows: repeat(5, min-content);
-    grid-template-areas: 
-    '. . thanos thanos  . . . . strange strange'
-    'captain captain captain . . . thor thor strange strange'
-    'romanoff romanoff romanoff romanoff . . . starLord starLord starLord';
-    position: relative;
-    z-index: 1;
-    align-items: center;
-    justify-content: center;
-}
-
-.characters-info__item {
-    background-color: $card-light-gray-background;
-    padding: $card-padding;
-    text-align: center;
-    border: $card-dark-border;
-    border-radius: $card-border-radius;
-    box-shadow: $card-inner-shadow;
-    justify-items: center;
-}
-
-.characters-info_text {
-    margin: 5px 0;
-}
-
-.thanos-info {
-    grid-area: thanos;
-}
-
-.ironMan-info {
-    grid-area: thanos;
-}
-
-.strange-info {
-    grid-area: strange;
-}
-
-.captainAmerica-info {
-    grid-area: captain;
-}
-
-.thor-info {
-    grid-area: thor;
-}
-
-.starLord-info {
-    grid-area: starLord;
-}
-
-.romanoff-info {
-    grid-area: romanoff;
-}
-
-.hulk-info {
-    grid-area: captain;
-}
-
-.groot-info {
-    grid-area: groot;
-}
-
-.gamora-info {
-    grid-area: starLord;
-}
-
-.spiderman-info {
-    grid-area: romanoff;
-}
-
 // adaptive
 @media (max-width: 1110px) {
     .main-title {
@@ -228,51 +156,9 @@
         padding: 0 10px;
     }
 
-    .main-title {
-        font-size: $mobile-primary-title-size;
-    }
 
-    .secondary-title {
-        font-size: $mobile-secondary-title-size;
-    }
 
     .select-wrapper {
         max-width: 130px;
-    }
-
-    .characters-info_text {
-        font-size: $mobile-card-text-size;
-    }
-
-    .characters-info {
-        grid-template-rows: repeat(2, min-content);
-        grid-template-areas: 
-        'thanos thanos thanos thanos  strange strange strange strange strange strange'
-        'thor thor thor thor thor captain captain captain captain captain';
-    }
-
-    /* это меняется при выборе option  из select, некоторые элементы встают на место предыдущих */
-    .ironMan-info {
-        grid-area: captain;
-    }
-
-    .starLord-info {
-        grid-area: captain;
-    }
-
-    .romanoff-info {
-        grid-area: thor;
-    }
-
-    .gamora-info {
-        grid-area: thor;
-    }
-
-    .hulk-info {
-        grid-area: captain;
-    }
-
-    .spiderman-info {
-        grid-area: thor;
     }
 }

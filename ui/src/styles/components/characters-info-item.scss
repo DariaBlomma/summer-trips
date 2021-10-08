@@ -1,0 +1,106 @@
+$block: '.characters-info';
+#{$block} {
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(5, min-content);
+    grid-template-areas: 
+    '. . thanos thanos  . . . . strange strange'
+    'captain captain captain . . . thor thor strange strange'
+    'blackWidow blackWidow blackWidow blackWidow . . . starLord starLord starLord';
+    position: relative;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+
+    &__item {
+        background-color: $card-light-gray-background;
+        padding: $card-padding;
+        text-align: center;
+        border: $card-dark-border;
+        border-radius: $card-border-radius;
+        box-shadow: $card-inner-shadow;
+        justify-items: center;
+    }
+
+    &_text {
+        margin: 5px 0;
+    }
+}
+
+.thanos-info {
+    grid-area: thanos;
+}
+
+.iron-man-info {
+    grid-area: thanos;
+}
+
+.dr-stephen-strange-info {
+    grid-area: strange;
+}
+
+.captain-america-info {
+    grid-area: captain;
+}
+
+.thor-info {
+    grid-area: thor;
+}
+
+.star-lord-info {
+    grid-area: starLord;
+}
+
+.black-widow-info {
+    grid-area: blackWidow;
+}
+
+.hulk-info {
+    grid-area: captain;
+}
+
+.gamora-info {
+    grid-area: starLord;
+}
+
+.spiderman-info {
+    grid-area: blackWidow;
+}
+
+@media (max-width: 375px) {
+    #{$block} {
+        grid-template-rows: repeat(2, min-content);
+        grid-template-areas: 
+        'thanos thanos thanos thanos  strange strange strange strange strange strange'
+        'thor thor thor thor thor captain captain captain captain captain';
+
+        &_text {
+            font-size: $mobile-card-text-size;
+        }
+    }
+
+    /* это меняется при выборе option  из select, некоторые элементы встают на место предыдущих */
+    .iron-man-info {
+        grid-area: captain;
+    }
+
+    .star-lord-info {
+        grid-area: captain;
+    }
+
+    .black-widow-info {
+        grid-area: thor;
+    }
+
+    .gamora-info {
+        grid-area: thor;
+    }
+
+    .hulk-info {
+        grid-area: captain;
+    }
+
+    .spiderman-info {
+        grid-area: thor;
+    }
+}

@@ -4,32 +4,33 @@
 @import './buttons.scss';
 
 @import 'components/index-page.scss';
+@import 'components/characters-info-item.scss';
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: $main-font;
+    font-family: $main-font;
 }
 
 // popup
 .popup-wrapper {
-  width: 100vw;
-  height: 100vh;
-  background-color: $light-black-background;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    background-color: $light-black-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 3;
 }
 
 .label {
-  font-size: 12px;
-  padding: 0 20px;
+    font-size: 12px;
+    padding: 0 20px;
 }
 
 
@@ -38,17 +39,25 @@ body {
 
 
 @media (max-width: 375px) {
-  button {
-    width: $mobile-button-width;
-    height: $mobile-button-height;
-  }
+    .main-title {
+        font-size: $mobile-primary-title-size;
+    }
 
-  button:hover, button:active {
-    background: $button-active-background;
-  }
+    .secondary-title {
+        font-size: $mobile-secondary-title-size;
+    }
 
-  .popup-wrapper {
-    padding: $mobile-popup-padding;
-  }
+    button {
+        width: $mobile-button-width;
+        height: $mobile-button-height;
+    }
+
+    button:hover, button:active {
+        background: $button-active-background;
+    }
+
+    .popup-wrapper {
+        padding: $mobile-popup-padding;
+    }
 }
 

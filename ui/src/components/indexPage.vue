@@ -37,59 +37,12 @@
             </div>
 
             <div class="characters-info">
-                <div class="thanos-info characters-info__item o-none">
-                    <h2 class="secondary-title">Thanos</h2>
-                    <p class="characters-info_text">My goal is to destroy half of all life in the universe. Join me and we'll do it together</p>
-                    <button class="choose-character" data-name='Thanos'><h3 class="title-3">Choose</h3></button>
-                </div>
-                <div class="ironMan-info characters-info__item o-none">
-                    <h2 class="secondary-title">Iron Man</h2>
-                    <!-- Tony Stark Iron Man -->
-                    <p class="characters-info_text">I am one of the strongest in Avengers. Some call me a technical genius. Join me to create a time machine that will save the world! </p>
-                    <button class="choose-character" data-name='Iron Man'><h3 class="title-3">Choose</h3></button>
-                </div>
-                <div class="strange-info characters-info__item o-none">
-                    <h2 class="secondary-title">Dr. Stephen Strange</h2>
-                    <p class="characters-info_text">I own the Time Stone and help Avengers to protect the Universe. But we have only one chance out of 14,000,605 possible future outcomes. Join and help me!</p>
-                    <button class="choose-character" data-name='Dr. Stephen Strange'><h3 class="title-3">Choose</h3></button>
-                </div>
-                <div class="captainAmerica-info characters-info__item o-none">
-                    <h2 class="secondary-title">Captain America</h2>
-                    <!-- Steve Rodgers Captain America -->
-                    <p class="characters-info_text">Every person is important when you need to stop Thanos. </p>
-                    <button class="choose-character" data-name='Captain America'><h3 class="title-3">Choose</h3></button>
-                </div>
-                <div class="thor-info characters-info__item o-none">
-                    <h2 class="secondary-title">Thor</h2>
-                    <p class="characters-info_text">Thanos killed my brother! I will not forgive that. Join me and we'll defeat him together!</p>
-                    <button class="choose-character" data-name='Thor'><h3 class="title-3">Choose</h3></button>
-                </div>
-                <div class="starLord-info characters-info__item o-none">
-                    <h2 class="secondary-title">Star Lord</h2>
-                    <!-- Peter Jason Quill Star Lord -->
-                    <button class="choose-character" data-name='Star Lord'><h3 class="title-3">Choose</h3></button>
-                </div>
-                <div class="romanoff-info characters-info__item o-none">
-                    <h2 class="secondary-title">Black Widow</h2>
-                    <!-- Natasha Romanoff Black Widow -->
-                    <p class="characters-info_text">I have extensive mastery in martial arts, am one of S.H.I.E.L.D.’s most efficient agents.</p>
-                    <button class="choose-character" data-name='Black Widow'><h3 class="title-3">Choose</h3></button>
-                </div>
-                <div class="hulk-info characters-info__item o-none">
-                    <h2 class="secondary-title">Hulk</h2>
-                    <!-- Bruce Banner Hulk -->
-                    <p class="characters-info_text">Unfortunately, I have problems with my green man. But that won't stop me!</p>
-                    <button class="choose-character" data-name='Hulk'><h3 class="title-3">Choose</h3></button>
-                </div>
-                <div class="gamora-info characters-info__item o-none">
-                    <h2 class="secondary-title">Gamora</h2>
-                    <p class="characters-info_text">I am a daughter of Thanos, but I will do everything to stop him!</p>
-                    <button class="choose-character" data-name='Gamora'><h3 class="title-3">Choose</h3></button>
-                </div>
-                <div class="spiderman-info characters-info__item o-none">
-                    <h2 class="secondary-title">Spiderman</h2>
-                    <button class="choose-character" data-name='Spiderman'><h3 class="title-3">Choose</h3></button>
-                </div>
+                <characters-info-item
+                    v-for="item in charactersInfoItems"
+                    :key="item.title"
+                    :title="item.title"
+                    :text="item.text"
+                />
             </div>
         </main>
         <footer>
@@ -99,7 +52,58 @@
 </template>    
 
 <script>
+import charactersInfoItem from '@/components/charactersInfoItem.vue';
+
 export default {
-    name: 'IndexPage',
+    name: 'indexPage',
+    components: {
+        charactersInfoItem,
+    },
+    data() {
+        return {
+            charactersInfoItems: [
+                {
+                    title: "Thanos",
+                    text: "My goal is to destroy half of all life in the universe. Join me and we'll do it together",
+                },
+                {
+                    title: 'Iron Man',
+                    text: 'I am one of the strongest in Avengers. Some call me a technical genius. Join me to create a time machine that will save the world!',
+                },
+                {
+                    title: 'Dr. Stephen Strange',
+                    text: 'I own the Time Stone and help Avengers to protect the Universe. But we have only one chance out of 14,000,605 possible future outcomes. Join and help me!',
+                },
+                {
+                    title: 'Captain America',
+                    text: 'Every person is important when you need to stop Thanos.',
+                },
+                {
+                    title: 'Thor',
+                    text: "Thanos killed my brother! I will not forgive that. Join me and we'll defeat him together!",
+                },
+                {
+                    title: 'Star Lord',
+                    text: ''
+                },
+                {
+                    title: 'Black Widow',
+                    text: 'I have extensive mastery in martial arts, am one of S.H.I.E.L.D.’s most efficient agents.',
+                },
+                {
+                    title: 'Hulk',
+                    text: "Unfortunately, I have problems with my green man. But that won't stop me!",
+                },
+                {
+                    title: 'Gamora',
+                    text: 'I am a daughter of Thanos, but I will do everything to stop him!',
+                },
+                {
+                    title: 'Spiderman',
+                    text: '',
+                },
+            ],
+        }
+    },
 }
 </script>
