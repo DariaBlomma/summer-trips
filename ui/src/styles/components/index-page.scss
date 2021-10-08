@@ -1,0 +1,278 @@
+/* index page styles */
+.index-page-body {
+    height: 100vh;
+    background-image: url('../images/avengers.jpg'), url('../images/avengers.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center, center 10px;
+    padding: 25px;
+}
+
+.index-page-header {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+/* icons in header*/
+.icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* common div with img and text */
+.coins-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.coin-img {
+    margin-right: 20px;
+}
+
+.page-coins-number {
+    font-size: larger;
+    color: white;
+    filter: drop-shadow(0 0 3px rgba(0,0,0,0.5));
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+/* avatar logo */
+.avatar {
+    width: 35px;
+    display: none; 
+}
+
+.avatar-wrapper {
+    background-image: url('../images/user.png');  
+    background-position: center center;
+    background-size: cover;
+    border: 1px solid black;
+}
+
+.coin-img, .avatar-wrapper, .shadowed-pic {
+    box-shadow: $shadowed-pic;
+}
+
+.auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: $card-padding;
+    background-color: $card-light-gray-background;
+    border: $card-dark-border;
+    border-radius: $card-border-radius;
+    box-shadow: $card-inner-shadow;
+}
+
+// page main content
+.select-wrapper {
+    position: absolute;
+    top: 120px;
+    z-index: 2;
+    background-color: $card-light-gray-background;
+    max-width: 150px;
+    padding: 7px;
+    margin-left: 25px;
+    text-align: center;
+    border: $card-dark-border;
+    border-radius: $card-border-radius;
+    box-shadow: $card-inner-shadow;
+}
+
+.select-wrapper.left {
+    left: 20px;
+}
+
+.select-wrapper.right {
+    left: auto;
+    right: 20px;
+}
+
+.characters-info {
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(5, min-content);
+    grid-template-areas: 
+    '. . thanos thanos  . . . . strange strange'
+    'captain captain captain . . . thor thor strange strange'
+    'romanoff romanoff romanoff romanoff . . . starLord starLord starLord';
+    position: relative;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.characters-info__item {
+    background-color: $card-light-gray-background;
+    padding: $card-padding;
+    text-align: center;
+    border: $card-dark-border;
+    border-radius: $card-border-radius;
+    box-shadow: $card-inner-shadow;
+    justify-items: center;
+}
+
+.characters-info_text {
+    margin: 5px 0;
+}
+
+.thanos-info {
+    grid-area: thanos;
+}
+
+.ironMan-info {
+    grid-area: thanos;
+}
+
+.strange-info {
+    grid-area: strange;
+}
+
+.captainAmerica-info {
+    grid-area: captain;
+}
+
+.thor-info {
+    grid-area: thor;
+}
+
+.starLord-info {
+    grid-area: starLord;
+}
+
+.romanoff-info {
+    grid-area: romanoff;
+}
+
+.hulk-info {
+    grid-area: captain;
+}
+
+.groot-info {
+    grid-area: groot;
+}
+
+.gamora-info {
+    grid-area: starLord;
+}
+
+.spiderman-info {
+    grid-area: romanoff;
+}
+
+// adaptive
+@media (max-width: 1110px) {
+    .main-title {
+        flex-basis: 500px;
+    }
+}
+
+@media (max-width: 1020px) {
+    .page-coins-text {
+        display: none;
+    }
+
+    .page-coins-number {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 960px) {
+    .main-title {
+        flex-basis: 450px;
+        margin-right: 3em;
+    }
+}
+
+@media (max-width: 770px) {
+    .index-page-body {
+        background-image: url('../images/avengers_mobile.jpg');
+        padding: 0 10px;
+        background-position-y: top;
+        padding-top: 15px;
+    }
+
+    .main-title {
+        flex-basis: 260px;
+        margin-right: 0em;
+    }
+}
+
+@media (max-width: 460px) { 
+    .main-title {
+        max-width: fit-content;
+    }
+
+    .trip-year {
+        display: none;
+    }
+}
+
+@media (max-width: 375px) {
+    .index-page-body {
+        padding: 10px;
+    }
+
+    .index-page-header {
+        padding: 0 10px;
+    }
+
+    .main-title {
+        font-size: $mobile-primary-title-size;
+    }
+
+    .secondary-title {
+        font-size: $mobile-secondary-title-size;
+    }
+
+    .select-wrapper {
+        max-width: 130px;
+    }
+
+    .characters-info_text {
+        font-size: $mobile-card-text-size;
+    }
+
+    .characters-info {
+        grid-template-rows: repeat(2, min-content);
+        grid-template-areas: 
+        'thanos thanos thanos thanos  strange strange strange strange strange strange'
+        'thor thor thor thor thor captain captain captain captain captain';
+    }
+
+    /* это меняется при выборе option  из select, некоторые элементы встают на место предыдущих */
+    .ironMan-info {
+        grid-area: captain;
+    }
+
+    .starLord-info {
+        grid-area: captain;
+    }
+
+    .romanoff-info {
+        grid-area: thor;
+    }
+
+    .gamora-info {
+        grid-area: thor;
+    }
+
+    .hulk-info {
+        grid-area: captain;
+    }
+
+    .spiderman-info {
+        grid-area: thor;
+    }
+}

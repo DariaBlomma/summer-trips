@@ -1,8 +1,5 @@
 <template>
-    <IndexPage/>
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <!-- <div class="index-page-body">
+        <div class="index-page-body">
         <div class="popup-wrapper d-none">
             <div class="popup-content">
                 <form action='' method='post' class="auth">
@@ -47,6 +44,7 @@
                 </div>
                 <div class="ironMan-info characters-info__item o-none">
                     <h2 class="secondary-title">Iron Man</h2>
+                    <!-- Tony Stark Iron Man -->
                     <p class="characters-info_text">I am one of the strongest in Avengers. Some call me a technical genius. Join me to create a time machine that will save the world! </p>
                     <button class="choose-character" data-name='Iron Man'><h3 class="title-3">Choose</h3></button>
                 </div>
@@ -57,7 +55,7 @@
                 </div>
                 <div class="captainAmerica-info characters-info__item o-none">
                     <h2 class="secondary-title">Captain America</h2>
-                    
+                    <!-- Steve Rodgers Captain America -->
                     <p class="characters-info_text">Every person is important when you need to stop Thanos. </p>
                     <button class="choose-character" data-name='Captain America'><h3 class="title-3">Choose</h3></button>
                 </div>
@@ -68,17 +66,18 @@
                 </div>
                 <div class="starLord-info characters-info__item o-none">
                     <h2 class="secondary-title">Star Lord</h2>
-                    
+                    <!-- Peter Jason Quill Star Lord -->
                     <button class="choose-character" data-name='Star Lord'><h3 class="title-3">Choose</h3></button>
                 </div>
                 <div class="romanoff-info characters-info__item o-none">
                     <h2 class="secondary-title">Black Widow</h2>
-
+                    <!-- Natasha Romanoff Black Widow -->
                     <p class="characters-info_text">I have extensive mastery in martial arts, am one of S.H.I.E.L.D.’s most efficient agents.</p>
                     <button class="choose-character" data-name='Black Widow'><h3 class="title-3">Choose</h3></button>
                 </div>
                 <div class="hulk-info characters-info__item o-none">
                     <h2 class="secondary-title">Hulk</h2>
+                    <!-- Bruce Banner Hulk -->
                     <p class="characters-info_text">Unfortunately, I have problems with my green man. But that won't stop me!</p>
                     <button class="choose-character" data-name='Hulk'><h3 class="title-3">Choose</h3></button>
                 </div>
@@ -96,39 +95,11 @@
         <footer>
 
         </footer>
-    </div> -->
-</template>
+    </div>
+</template>    
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-import  IndexPage from './components/indexPage.vue';
-import $ from 'jquery'
-import '@/jquery.selectric.min.js';
-
 export default {
-    name: 'App',
-    components: {
-        IndexPage,
-    },
-    mounted() {
-        //jquery for select
-        $(() => {
-            $('select').selectric({
-                disableOnMobile: false,
-                nativeOnMobile: false
-            });
-        });
-    }
+    name: 'IndexPage',
 }
 </script>
-
-<style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
-</style>

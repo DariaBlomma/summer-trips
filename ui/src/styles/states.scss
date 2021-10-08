@@ -1,0 +1,25 @@
+// states
+.error-message {
+    color: $error-msg-color;
+    margin: 10px auto;
+}
+
+.active {
+    display: block; 
+}
+
+.valid {
+    border: $valid-border;
+}
+
+.invalid {
+    border: $valid-border;
+}
+
+.d-none {
+    display: none;
+}
+
+.o-none {
+    opacity: 0;
+}

@@ -1,0 +1,12 @@
+// form elems
+.input-form {
+    border-radius: $card-border-radius;
+    height: 30px;
+    padding: $card-padding;
+    margin: 5px;
+}
+
+.input-form:focus {
+    outline: none;
+    border-width: 3px;
+}

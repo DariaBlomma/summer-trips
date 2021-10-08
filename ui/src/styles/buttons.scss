@@ -1,0 +1,21 @@
+// buttons
+button {
+    width: $button-width;
+    height: $button-height;
+    border: $card-dark-border;
+    border-radius: $button-height;
+    background: $button-background;
+    box-shadow: $card-inner-shadow;
+}
+
+button:hover {
+    background: $button-hover-background;
+}
+
+button:active {
+    background: $button-active-background;
+}
+
+button:focus {
+    outline: none;
+}
