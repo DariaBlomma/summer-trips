@@ -9,8 +9,6 @@
     padding: 25px;
 }
 
-
-
 .auth {
     display: flex;
     flex-direction: column;
@@ -48,12 +46,6 @@
 }
 
 // adaptive
-
-
-
-
-
-
 @media (max-width: 770px) {
     .index-page-body {
         background-image: url('../images/avengers_mobile.jpg');

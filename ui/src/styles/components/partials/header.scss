@@ -1,4 +1,4 @@
-.index-page-header {
+.header {
     height: 80px;
     display: flex;
     justify-content: space-between;
@@ -69,7 +69,7 @@
 }
 
 @media (max-width: 375px) {
-    .index-page-header {
+    .header {
         padding: 0 10px;
     }
 }

@@ -3,10 +3,12 @@
 @import './headings.scss';
 @import './buttons.scss';
 
+@import 'components/partials/header.scss';
+
 @import 'components/index-page.scss';
 @import 'components/characters-info-item.scss';
+@import 'components/lesson1.scss';
 
-@import 'components/partials/header.scss';
 
 * {
     box-sizing: border-box;

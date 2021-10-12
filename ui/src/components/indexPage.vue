@@ -11,7 +11,9 @@
                 </form>
             </div>
         </div>
-        <Header :coinsNumber=1 />
+        <Header 
+            :coinsNumber=1
+        />
         <main>
             <div class="select-wrapper left">
                 <h3 class="title-3">More about</h3>

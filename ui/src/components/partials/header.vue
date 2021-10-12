@@ -1,5 +1,8 @@
 <template>
-    <header class="index-page-header">
+    <header 
+        class="header"
+        :class="className"
+    >
         <div class="coins-wrapper">
             <img class="coin-img icon" src="@/images/coin.png">
             <span class="page-coins-number">{{coinsNumber}}</span>
@@ -21,6 +24,10 @@ export default {
             required: true,
             default: 1,
         },
+        className: {
+            type: String,
+            required: false,
+        }
     },
 }
 </script>
