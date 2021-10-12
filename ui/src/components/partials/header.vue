@@ -3,15 +3,20 @@
         class="header"
         :class="className"
     >
-        <div class="coins-wrapper">
-            <img class="coin-img icon" src="@/images/coin.png">
-            <span class="page-coins-number">{{coinsNumber}}</span>
-            <span class="page-coins-text">on this page</span> 
-        </div>
+        <slot name="left-icon">
+            <div class="coins-wrapper">
+                <img class="coin-img icon" src="@/images/coin.png">
+                <span class="page-coins-number">{{coinsNumber}}</span>
+                <span class="page-coins-text">on this page</span> 
+            </div>
+        </slot>
         <h1 class="main-title">
             <slot><span class='trip-name'>Avengers </span> <span class="trip-year">2021</span></slot>
         </h1>
-        <div class="avatar-wrapper icon"></div>
+        <router-link 
+            class="avatar-wrapper icon" 
+            to="/personal-page"
+        />
     </header>
 </template>
 

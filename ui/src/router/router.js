@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory } from 'vue-router';
 
 import IndexPage from '@/components/indexPage.vue';
+import PersonalPage from '@/components/personalPage.vue';
 import Lesson1 from '@/components/lesson1.vue';
 
 let routes = [
@@ -11,6 +12,10 @@ let routes = [
     {
         path: "/lesson1",
         component: Lesson1,
+    },
+    {
+        path: "/personal-page",
+        component: PersonalPage,
     },
 ];
 
