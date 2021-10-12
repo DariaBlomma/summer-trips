@@ -98,7 +98,7 @@ if ($data !== null) {
             <div class='lessons-wrapper'>
                 <h3 class='title-3 light'>Lessons</h3>
                 <ol class='lessons'>
-                    <li><a href='#'>Lesson 1</a></li>
+                    <li><a href='./lessons/lesson1.html'>Lesson 1</a></li>
                     <li><a href='#'>Lesson 2</a></li>
                 </ol>
             </div>
