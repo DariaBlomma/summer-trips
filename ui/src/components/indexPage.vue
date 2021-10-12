@@ -1,5 +1,5 @@
 <template>
-        <div class="index-page-body">
+    <div class="index-page-body">
         <div class="popup-wrapper d-none">
             <div class="popup-content">
                 <form action='' method='post' class="auth">
@@ -41,6 +41,8 @@
 </template>    
 
 <script>
+import $ from 'jquery'
+import '@/jquery.selectric.min.js';
 import Header from '@/components/partials/header.vue';
 import CharactersInfoItem from '@/components/charactersInfoItem.vue';
 
@@ -96,5 +98,14 @@ export default {
             ],
         }
     },
+    mounted() {
+        //jquery for select
+        $(() => {
+            $('select').selectric({
+                disableOnMobile: false,
+                nativeOnMobile: false
+            });
+        });
+    }
 }
 </script>
