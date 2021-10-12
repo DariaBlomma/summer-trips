@@ -19,3 +19,14 @@ button:active {
 button:focus {
     outline: none;
 }
+
+@media (max-width: 375px) {
+    button {
+        width: $mobile-button-width;
+        height: $mobile-button-height;
+    }
+
+    button:hover, button:active {
+        background: $button-active-background;
+    }
+}

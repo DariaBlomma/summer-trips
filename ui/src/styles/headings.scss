@@ -18,3 +18,39 @@
     font-family: $headings-font;
     color: $title-3-color;
 }
+
+@media (max-width: 1110px) {
+    .main-title {
+        flex-basis: 500px;
+    }
+}
+
+@media (max-width: 960px) {
+    .main-title {
+        flex-basis: 450px;
+        margin-right: 3em;
+    }
+}
+
+@media (max-width: 770px) {
+    .main-title {
+        flex-basis: 260px;
+        margin-right: 0em;
+    }
+}
+
+@media (max-width: 460px) { 
+    .main-title {
+        max-width: fit-content;
+    }
+}
+
+@media (max-width: 375px) {
+    .main-title {
+        font-size: $mobile-primary-title-size;
+    }
+
+    .secondary-title {
+        font-size: $mobile-secondary-title-size;
+    }
+}

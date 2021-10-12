@@ -1,19 +1,16 @@
 <template>
-    <index-page/>
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <Index-page/>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-import indexPage from './components/indexPage.vue';
+import IndexPage from './components/indexPage.vue';
 import $ from 'jquery'
 import '@/jquery.selectric.min.js';
 
 export default {
     name: 'App',
     components: {
-        indexPage,
+        IndexPage,
     },
     mounted() {
         //jquery for select
@@ -27,13 +24,4 @@ export default {
 }
 </script>
 
-<style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
-</style>
+<style></style>

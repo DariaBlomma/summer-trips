@@ -1,0 +1,75 @@
+.index-page-header {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+/* icons in header*/
+.icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* common div with img and text */
+.coins-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.coin-img {
+    margin-right: 20px;
+}
+
+.page-coins-number {
+    font-size: larger;
+    color: white;
+    filter: drop-shadow(0 0 3px rgba(0,0,0,0.5));
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+/* avatar logo */
+.avatar {
+    width: 35px;
+    display: none; 
+}
+
+.avatar-wrapper {
+    background-image: url('../images/user.png');  
+    background-position: center center;
+    background-size: cover;
+    border: 1px solid black;
+}
+
+.coin-img, .avatar-wrapper, .shadowed-pic {
+    box-shadow: $shadowed-pic;
+}
+
+@media (max-width: 1020px) {
+    .page-coins-text {
+        display: none;
+    }
+
+    .page-coins-number {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 460px) { 
+    .trip-year {
+        display: none;
+    }
+}
+
+@media (max-width: 375px) {
+    .index-page-header {
+        padding: 0 10px;
+    }
+}

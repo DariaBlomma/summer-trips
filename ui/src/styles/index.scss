@@ -6,6 +6,8 @@
 @import 'components/index-page.scss';
 @import 'components/characters-info-item.scss';
 
+@import 'components/partials/header.scss';
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -39,23 +41,6 @@ body {
 
 
 @media (max-width: 375px) {
-    .main-title {
-        font-size: $mobile-primary-title-size;
-    }
-
-    .secondary-title {
-        font-size: $mobile-secondary-title-size;
-    }
-
-    button {
-        width: $mobile-button-width;
-        height: $mobile-button-height;
-    }
-
-    button:hover, button:active {
-        background: $button-active-background;
-    }
-
     .popup-wrapper {
         padding: $mobile-popup-padding;
     }

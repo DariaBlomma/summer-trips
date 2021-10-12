@@ -11,33 +11,22 @@
                 </form>
             </div>
         </div>
-        <header class="index-page-header">
-            <div class="coins-wrapper">
-                <img class="coin-img icon" src="@/images/coin.png">
-                <span class="page-coins-number">1 </span><span class="page-coins-text">on this page</span> 
-            </div>
-            <h1 class="main-title"><span class='trip-name'>Avengers </span> <span class="trip-year">2021</span></h1>
-            <div class="avatar-wrapper icon"></div>
-        </header>
+        <Header :coinsNumber=1 />
         <main>
             <div class="select-wrapper left">
                 <h3 class="title-3">More about</h3>
                 <select class="select-character">
-                    <option>Thanos</option>
-                    <option>Iron Man</option>
-                    <option>Dr. Stephen Strange</option>
-                    <option>Captain America</option>
-                    <option>Thor</option>
-                    <option>Star Lord</option>
-                    <option>Black Widow</option>
-                    <option>Hulk</option>
-                    <option>Gamora</option>
-                    <option>Spiderman</option>
+                    <option 
+                        v-for="item in charactersInfoItems"
+                        :key="item.title"
+                    >
+                    {{item.title}}
+                    </option>
                 </select>
             </div>
 
             <div class="characters-info">
-                <characters-info-item
+                <Characters-info-item
                     v-for="item in charactersInfoItems"
                     :key="item.title"
                     :title="item.title"
@@ -52,12 +41,14 @@
 </template>    
 
 <script>
-import charactersInfoItem from '@/components/charactersInfoItem.vue';
+import Header from '@/components/partials/header.vue';
+import CharactersInfoItem from '@/components/charactersInfoItem.vue';
 
 export default {
-    name: 'indexPage',
+    name: 'IndexPage',
     components: {
-        charactersInfoItem,
+        CharactersInfoItem,
+        Header,
     },
     data() {
         return {

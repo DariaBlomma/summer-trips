@@ -15,7 +15,7 @@
 
 <script>
 export default {
-    name: 'charactersInfoItem',
+    name: 'CharactersInfoItem',
     props: ['title', 'text', 'className'],
     computed: {
         // вычисляем уникальный класс на основе имени персонажа
