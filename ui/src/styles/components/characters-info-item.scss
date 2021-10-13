@@ -22,7 +22,7 @@ $block: '.characters-info';
         justify-items: center;
     }
 
-    &_text {
+    &__text {
         margin: 5px 0;
     }
 }
@@ -74,7 +74,7 @@ $block: '.characters-info';
         'thanos thanos thanos thanos  strange strange strange strange strange strange'
         'thor thor thor thor thor captain captain captain captain captain';
 
-        &_text {
+        &__text {
             font-size: $mobile-card-text-size;
         }
     }

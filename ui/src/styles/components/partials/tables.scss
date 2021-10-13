@@ -1,0 +1,22 @@
+$table: '.table';
+
+#{$table} {
+    border-collapse: collapse;
+
+    thead {
+        background-color: $thead-bgcolor;
+    }
+    
+    th, td {
+        border: $td-border;
+        padding: $td-padding;
+    }
+
+    &__total {
+        background-color: #00ffff54;
+    }
+    
+    &__number {
+        background-color: #f5f5dc66;
+    }
+}

@@ -1,21 +1,29 @@
 /* personal page styles */
-.personal-page-body {
+$personal-page: '.personal-page';
+
+#{$personal-page} {
     background-image: url('../images/space.jpg');
     background-size: cover;
     color: white;
     height: 100vh;
+
+    &__header {
+        padding-top: 20px;;
+        .main-title {
+            margin-right: 0;
+            justify-content: center;
+        }
+
+        .real-photo {
+            background-image: url('../images/ruslan_real.jpg');
+        }
+    }
 }
 
-.header.personal-page .main-title {
-    margin-right: 0;
-    justify-content: center;
-}
+$timer: '.timer';
+$timer-id: '#timer';
 
-.real-photo {
-    background-image: url('../images/ruslan_real.jpg');
-}
-
-.timer {
+#{$timer} {
     margin-top:3rem;
     margin-bottom:6rem;
     display: grid;
@@ -24,118 +32,91 @@
     'hours dot1 minutes dot2 seconds'
     'h_text . m_text . s_text';
     justify-content: center;
-}
 
-.timer-action{
-    font-weight:300;
-    font-size:2.2rem;
-    grid-area: title;
-    justify-self: center;
+    &__action {
+        font-weight:300;
+        font-size:2.2rem;
+        grid-area: title;
+        justify-self: center;
+    }
+
+    &__numbers {
+        font-size:5rem;
+    }
+
+    &__dot1 {
+        grid-area: dot1;
+    }
+
+    &__dot2 {
+        grid-area: dot2;
+    }
+
+    &__h-text {
+        grid-area: h_text;
+        justify-self: center;
+    }
     
+    &__m-text {
+        grid-area: m_text;
+        justify-self: center;
+    }
+    
+    &__s-text {
+        grid-area: s_text;
+        justify-self: center;
+    }
 }
 
-.timer-numbers{
-    font-size:5rem;
+#{$timer-id} {
+    &__hours {
+        grid-area: hours;
+    }
+
+    &__minutes {
+        grid-area: minutes;
+    }
+
+    &__seconds {
+        grid-area: seconds;
+    }
 }
 
-#timer-hours {
-    grid-area: hours;
+@mixin game-info__item() {
+    padding: 10px;
 }
 
-#timer-minutes {
-    grid-area: minutes;
-}
+$game-info: '.game-info';
 
-#timer-seconds {
-    grid-area: seconds;
-}
-
-.dot1 {
-    grid-area: dot1;
-}
-
-.dot2 {
-    grid-area: dot2;
-}
-
-.h-text {
-    grid-area: h_text;
-    justify-self: center;
-}
-
-.m-text {
-    grid-area: m_text;
-    justify-self: center;
-}
-
-.s-text {
-    grid-area: s_text;
-    justify-self: center;
-}
-
-.game-info-wrapper {
+#{$game-info} {
     display: grid;
     grid-template-areas: 
     'lessons hws tasks'
     'points points points';
     justify-content: center;
+
+    &__lessons {
+        @include game-info__item;
+        grid-area: lessons;
+    }
+
+    &__hws {
+        @include game-info__item;
+        grid-area: hws;
+    }
+
+    &__additional-tasks {
+        @include game-info__item;
+        grid-area: tasks;
+    }
 }
 
-.game-info-wrapper div {
-    padding: 10px;
-}
+$points: '.points';
 
-.lessons-wrapper {
-    grid-area: lessons;
-}
-
-.hws-wrapper {
-    grid-area: hws;
-}
-
-.additional-tasks-wrapper {
-    grid-area: tasks;
-}
-
-ol {
-    list-style-position: inside;
-}
-
-li {
-    padding: 5px;
-}
-
-ol a {
-    color: #b0d0ec;
-}
-.points-wrapper {
+#{$points} {
     grid-area: points;
     display: flex;
     flex-direction: column;
-}
+    padding-top: 25px;
 
-.title-3.light {
-    color: white;
 }
-
-table {
-    border-collapse: collapse;
-}
-
-thead {
-    background-color: #ffffff29;
-}
-
-th, td {
-    border: 1px solid white;
-    padding: 5px;
-}
-
-.total {
-    background-color: #00ffff54;
-}
-
-.number {
-    background-color: #f5f5dc66;
-}
-

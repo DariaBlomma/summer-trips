@@ -1,15 +1,22 @@
 @import './variables.scss';
 @import './selectric.scss';
-@import './headings.scss';
-@import './buttons.scss';
+
+
+// partials
+@import 'components/partials/headings.scss';
+@import 'components/partials/buttons.scss';
+@import 'components/partials/form-elems.scss';
+@import 'components/partials/lists.scss';
+@import 'components/partials/tables.scss';
 
 @import 'components/partials/header.scss';
+@import 'components/partials/popup.scss';
 
+// components
 @import 'components/index-page.scss';
 @import 'components/personal-page.scss';
 @import 'components/characters-info-item.scss';
 @import 'components/lesson1.scss';
-
 
 * {
     box-sizing: border-box;
@@ -21,31 +28,4 @@ body {
     font-family: $main-font;
 }
 
-// popup
-.popup-wrapper {
-    width: 100vw;
-    height: 100vh;
-    background-color: $light-black-background;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 3;
-}
-
-.label {
-    font-size: 12px;
-    padding: 0 20px;
-}
-
-
-@import './form-elems.scss';
 @import './states.scss';
-
-
-@media (max-width: 375px) {
-    .popup-wrapper {
-        padding: $mobile-popup-padding;
-    }
-}
-

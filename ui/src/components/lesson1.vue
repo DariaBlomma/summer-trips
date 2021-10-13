@@ -1,20 +1,20 @@
 <template>
-<div class='lesson1-body'>
+<div class='lesson1'>
     <Header 
         :coinsNumber=1
-        class="lesson1"
+        class="lesson1__header"
     >
         <span>Lesson <span class='lesson-number'>1</span></span>
     </Header>
-    <main class='lesson1'>   
+    <main class='lesson1__main-content'>   
         <div class="hero-speech">
             Hello, friend! With your help we will win and help the Universe. 
             First of all, let me tell you about the current situation.
             Be attentive, I will check your understanding.
         </div>
-        <!-- <img class='hero-big' src='@/images/strange_big.jpg'> -->
-        <!-- <img class='hero-big' src='@/images/thor_big.jpg'> -->
-        <img class='hero-big' src='@/images/hulk_big.jpg'>
+        <!-- <img class='hero-img hero-img_big' src='@/images/strange_big.jpg'> -->
+        <!-- <img class='hero-img hero-img_big' src='@/images/thor_big.jpg'> -->
+        <img class='hero-img hero-img_big' src='@/images/hulk_big.jpg'>
         <div class='audio-file'>
             <p>Thor, Hulk</p>
             <audio controls>

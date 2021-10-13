@@ -1,5 +1,21 @@
 /* index page styles */
-.index-page-body {
+@mixin select-wrapper () {
+    position: absolute;
+    top: 120px;
+    z-index: 2;
+    background-color: $card-light-gray-background;
+    max-width: 150px;
+    padding: $card-padding;
+    margin-left: 25px;
+    text-align: center;
+    border: $card-dark-border;
+    border-radius: $card-border-radius;
+    box-shadow: $card-inner-shadow;
+}
+
+$select-wrapper: '.select-wrapper';
+
+.index-page {
     height: 100vh;
     background-image: url('../images/avengers.jpg'), url('../images/avengers.jpg');
     background-repeat: no-repeat;
@@ -9,45 +25,25 @@
     padding: 25px;
 }
 
-.auth {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: $card-padding;
-    background-color: $card-light-gray-background;
-    border: $card-dark-border;
-    border-radius: $card-border-radius;
-    box-shadow: $card-inner-shadow;
-}
-
 // page main content
-.select-wrapper {
-    position: absolute;
-    top: 120px;
-    z-index: 2;
-    background-color: $card-light-gray-background;
-    max-width: 150px;
-    padding: 7px;
-    margin-left: 25px;
-    text-align: center;
-    border: $card-dark-border;
-    border-radius: $card-border-radius;
-    box-shadow: $card-inner-shadow;
-}
+#{$select-wrapper} {
+    @include select-wrapper;
 
-.select-wrapper.left {
-    left: 20px;
-}
+    &_left {
+        @include select-wrapper;
+        left: 20px;
+    }
 
-.select-wrapper.right {
-    left: auto;
-    right: 20px;
+    &_right {
+        @include select-wrapper;
+        left: auto;
+        right: 20px;
+    }
 }
 
 // adaptive
 @media (max-width: 770px) {
-    .index-page-body {
+    .index-page {
         background-image: url('../images/avengers_mobile.jpg');
         padding: 0 10px;
         background-position-y: top;
@@ -57,11 +53,11 @@
 
 
 @media (max-width: 375px) {
-    .index-page-body {
+    .index-page {
         padding: 10px;
     }
 
-    .select-wrapper {
+    #{$select-wrapper} {
         max-width: 130px;
     }
 }

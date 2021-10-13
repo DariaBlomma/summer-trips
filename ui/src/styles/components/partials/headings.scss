@@ -14,9 +14,14 @@
 }
 
 .title-3 {
-    margin: 5px 0;
+    margin: $card-padding / 2 0;
+    margin-bottom: $card-padding;
     font-family: $headings-font;
     color: $title-3-color;
+}
+
+.title-3.light {
+    color: $title-3-light-color;
 }
 
 @media (max-width: 1110px) {

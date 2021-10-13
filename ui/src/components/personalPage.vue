@@ -1,8 +1,8 @@
 <template>
-    <div class="personal-page-body">
+    <div class="personal-page">
         <Header 
             :coinsNumber=1
-            class='personal-page'
+            class='personal-page__header'
         >
             <template v-slot:left-icon>
                 <div class="avatar-wrapper icon real-photo shadowed-pic"></div>
@@ -11,49 +11,49 @@
         </Header>
         <main>
             <div class="timer">
-                <div class="timer-title">
+                <div class="timer__title">
                 </div>
-                <div class="timer-action">
+                <div class="timer__action">
                     Time to win
                 </div>
-                    <span class='timer-numbers' id="timer-hours">19</span>
-                    <span class='timer-numbers dot1'>:</span>
-                    <span class='timer-numbers' id="timer-minutes">45</span>
-                    <span class='timer-numbers dot2'>:</span>
-                    <span class='timer-numbers' id="timer-seconds">12</span>
-                    <span class='h-text'>hours</span>
-                    <span class='m-text'>minutes</span>
-                    <span class='s-text'>seconds</span>
+                    <span class='timer__numbers' id="timer__hours">19</span>
+                    <span class='timer__numbers timer__dot1'>:</span>
+                    <span class='timer__numbers' id="timer__minutes">45</span>
+                    <span class='timer__numbers timer__dot2'>:</span>
+                    <span class='timer__numbers' id="timer__seconds">12</span>
+                    <span class='timer__h-text'>hours</span>
+                    <span class='timer__m-text'>minutes</span>
+                    <span class='timer__s-text'>seconds</span>
             </div>
-            <div class='game-info-wrapper'>
-                <div class='lessons-wrapper'>
+            <div class='game-info'>
+                <div class='game-info__lessons'>
                     <h3 class='title-3 light'>Lessons</h3>
-                    <ol class='lessons'>
+                    <ol class='game-info__lessons-list'>
                         <li><router-link to="/lesson1">Lesson 1</router-link></li>
                         <li><a href='#'>Lesson 2</a></li>
                         
                     </ol>
                 </div>
-                <div class='hws-wrapper'>
+                <div class='game-info__hws'>
                     <h3 class="title-3 light">Homeworks</h3>
-                    <ol class='hws'>
+                    <ol class='game-info__hws-list'>
                         <li><a href='#'>Hw 1</a></li>
                         <li><a href='#'>Hw 2</a></li>
                     </ol>
                 </div>
-                <div class='additional-tasks-wrapper'>
+                <div class='game-info__additional-tasks'>
                     <h3 class="title-3 light">Additional tasks</h3>
-                    <ol class='add-tasks'>
+                    <ol class='game-info__add-tasks-list'>
                         <li><a href='#'>Task 1</a></li>
                         <li><a href='#'>Task 2</a></li>
                     </ol>
                 </div>
-                <div class='points-wrapper'>
+                <div class='points'>
                     <h3 class='title-3 light'>Points</h3>
-                    <table class='points'>
+                    <table class='table'>
                         <thead>
                             <tr>
-                                <th class='number'>Number</th>
+                                <th class='table__number'>Number</th>
                                 <th>Lesson</th>
                                 <th>HW</th>
                                 <th>Per page</th>
@@ -61,16 +61,16 @@
                             </tr>
                         </thead>
                             <tr>
-                                <td class='number'>1</td>
-                                <td class='to-count'>1</td>
-                                <td class='to-count'>1</td>
-                                <td class='to-count'>1</td>
-                                <td class='to-count'>1</td>
+                                <td class='table__number'>1</td>
+                                <td class='table__to-count'>1</td>
+                                <td class='table__to-count'>1</td>
+                                <td class='table__to-count'>1</td>
+                                <td class='table__to-count'>1</td>
                             </tr>
                         <tfoot>
                             <tr>
-                                <td colspan='4' class='total bold'>Total</td>
-                                <td class='total bold sum'>22</td>
+                                <td colspan='4' class='table__total bold'>Total</td>
+                                <td class='table__total bold sum'>22</td>
                             </tr>
                         </tfoot>
                     </table>

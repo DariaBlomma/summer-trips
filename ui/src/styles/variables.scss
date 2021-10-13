@@ -4,6 +4,7 @@ $headings-font: 'Playfair Display', serif;
 
 //headings
 $title-3-color: #141d1c;
+$title-3-light-color: white;
 
 //mobile headings
 $mobile-primary-title-size: 1.3em;
@@ -53,7 +54,15 @@ $card-light-gray-background: rgba(255, 255, 255, 0.8);
 $card-dark-border: 3px solid #292c30;
 $card-border-radius: 28px;
 $card-inner-shadow: 0 0 5px rgba(0,0,0,0.6), 0 0 16px rgba(0,0,0,0.75) inset;
-$card-padding: 5px;
+$card-padding: 10px;
+
+// table
+$thead-bgcolor: #ffffff29;
+$td-border: 1px solid white;
+$td-padding: 5px;
+
+// hero-speech
+$hero-speech-bgcolor: #e0ae7d;
 
 //white img blur
 $shadowed-pic: 0px 0px 30px 22px rgba(255, 255, 255, 0.2);

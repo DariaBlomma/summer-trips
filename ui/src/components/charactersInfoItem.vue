@@ -4,7 +4,7 @@
         class="characters-info__item o-none"
     >
         <h2 class="secondary-title">{{title}} </h2>
-        <p class="characters-info_text">{{text}}</p>
+        <p class="characters-info__text">{{text}}</p>
         <button 
             class="choose-character" 
             data-name="item.title">

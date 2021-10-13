@@ -1,23 +1,13 @@
 <template>
-    <div class="index-page-body">
-        <div class="popup-wrapper d-none">
-            <div class="popup-content">
-                <form action='' method='post' class="auth">
-                    <input type="text" name="real_name" placeholder="your real name" id="real_name" class="input-form">
-                    <label for="password" class="label">Your password is the name of the chosen character</label>
-                    <input type="text" name="password" placeholder="your password" id="password" class="input-form">
-                    <p class='error-message d-none'>The password is false. Please try again</p>
-                    <button type='button' class="submit"><h3 class="title-3">Submit</h3></button>
-                </form>
-            </div>
-        </div>
+    <Popup />
+    <div class="index-page">
         <Header 
             :coinsNumber=1
         />
         <main>
-            <div class="select-wrapper left">
+            <div class="select-wrapper select-wrapper_left">
                 <h3 class="title-3">More about</h3>
-                <select class="select-character">
+                <select class="select-wrapper__select">
                     <option 
                         v-for="item in charactersInfoItems"
                         :key="item.title"
@@ -46,6 +36,7 @@
 import $ from 'jquery'
 import '@/jquery.selectric.min.js';
 import Header from '@/components/partials/header.vue';
+import Popup from '@/components/partials/popup.vue';
 import CharactersInfoItem from '@/components/charactersInfoItem.vue';
 
 export default {
@@ -53,6 +44,7 @@ export default {
     components: {
         CharactersInfoItem,
         Header,
+        Popup,
     },
     data() {
         return {
