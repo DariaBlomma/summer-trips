@@ -1,0 +1,3 @@
+AddHandler fcgid-script .html .htm
+php_value session.gc_maxlifetime 5356800
+php_value session.cookie_lifetime 0

@@ -1,0 +1,13 @@
+.think {
+    color: orangered;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid rgb(37, 1, 44);
+}
+
+th, td {
+    border: 1px solid rgb(37, 1, 44);
+    padding: 5px;
+}
