@@ -1,7 +1,7 @@
 <template>
 <div class='lesson1'>
     <Header 
-        :coinsNumber=1
+        :coinsNumber=5
         class="lesson1__header"
     >
         <span>Lesson <span class='lesson-number'>1</span></span>

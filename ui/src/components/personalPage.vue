@@ -29,7 +29,7 @@
                 <div class='game-info__lessons'>
                     <h3 class='title-3 light'>Lessons</h3>
                     <ol class='game-info__lessons-list'>
-                        <li><router-link to="/lesson1">Lesson 1</router-link></li>
+                        <li><router-link :to="{name: 'lesson1'}">Lesson 1</router-link></li>
                         <li><a href='#'>Lesson 2</a></li>
                         
                     </ol>

@@ -6,14 +6,17 @@ import Lesson1 from '@/components/lesson1.vue';
 
 let routes = [
     {
+        name: "index-page",
         path: "/",
         component: IndexPage,
     },
     {
+        name: "lesson1",
         path: "/lesson1",
         component: Lesson1,
     },
     {
+        name: "personal-page",
         path: "/personal-page",
         component: PersonalPage,
     },

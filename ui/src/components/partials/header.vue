@@ -15,7 +15,7 @@
         </h1>
         <router-link 
             class="avatar-wrapper icon" 
-            to="/personal-page"
+            :to="{name: 'personal-page'}"
         />
     </header>
 </template>
