@@ -33,7 +33,7 @@
                 <source src='@/media/lesson1/Lesson1.Thanos.mp3' type='audio/mpeg'>
             </audio>
         </div>
-                <div class='prep-ex_common'>
+        <div class='prep-ex_common'>
             <h3 class='title-3 light centered'>Words to prepare</h3>
             <ul class='prep-ex_common__list_en'>
                 <li>eliminate</li>
@@ -217,6 +217,7 @@
             <p class='if if-thanos'><input type='radio' name='six'>I want to help the universe and it doesn’t matter to me if some people will have to  die</p>
         </div>
         <div class='first-decision'>
+            <!-- здесь будет задание на понимание речи героев фильма -->
             <h3 class='title-3 light centered if if-thanos '>What shall I do next?</h3>
             <ul class='first-decision__variants-list if if-thanos'>
                 <li>Search all and everywhere for the Tesseract</li>

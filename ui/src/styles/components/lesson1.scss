@@ -107,6 +107,12 @@ $prep-ex: '.prep-ex';
         grid-area: prepProper;
         display: grid;
         align-items: center;
+
+        .infinity-stones {
+            border-radius: $card-border-radius;
+            width: 100%;
+            margin-top: 10px;
+        }
     }
 
     &_proper__list {
@@ -114,6 +120,8 @@ $prep-ex: '.prep-ex';
         padding: $card-padding;
         box-shadow: 0 0 15px rgb(154, 149, 243 / 60%), 0 0 66px rgb(147, 141, 255 / 75%) inset;
         text-align: center;
+
+
     }
 
     &_common__list_en {
@@ -125,11 +133,7 @@ $prep-ex: '.prep-ex';
     }
 }
 
-.infinity-stones {
-    border-radius: $card-border-radius;
-    width: 100%;
-    margin-top: 10px;
-}
+
 
 @mixin audio-test() {
     color: white;
@@ -189,4 +193,164 @@ $first-decision: '.first-decision';
 
 .video-result {
     grid-area: video;
+}
+
+@media (max-width: 1000px) {
+    #{$lesson1} {
+        &__main-content {
+            grid-template-areas: 
+                'speech speech'
+                'img audio'
+                'img prepCommon'
+                'prepProper prepProper'
+                'test1 test1'
+                'test2 test2'
+                'decision decision'
+                'video video';
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+    }
+
+    #{$prep-ex} {
+        &_proper {
+            display: flex;
+            justify-content: space-around;
+
+            .infinity-stones {
+                width: 48%;
+            }
+        }
+
+        &_proper__list {
+            flex-grow: 1;
+            margin-right: 30px;
+        }
+
+        &_common {
+            justify-content: space-around;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    #{$lesson1} {
+        &__main-content {
+            grid-template-areas: 
+                'img speech'
+                'prepProper prepProper'
+                'prepCommon prepCommon'
+                'audio audio'
+                'test1 test1'
+                'test2 test2'
+                'decision decision'
+                'video video';
+            padding-top: 25px;
+        }
+    }
+
+    #{$hero-speech} {
+        display: grid;
+        align-content: center;
+        padding: 30px;
+        font-size: 1.2em;
+
+        &::before, &::after  {
+            top: 10%;
+            left: -54px;
+            transform: rotate(90deg);
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #{$hero-speech} {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 500px) {
+    #{$lesson1} {
+        &__main-content {
+            grid-template-areas: 
+                'speech'
+                'img'
+                'prepProper'
+                'prepCommon'
+                'audio'
+                'test1'
+                'test2'
+                'decision'
+                'video';
+            grid-template-columns: 1fr;
+            font-size: 1.2em;
+
+            div, img {
+                max-width: 83vw;
+                word-break: break-word;
+            }
+        }
+
+        &__header {
+            .main-title {
+                margin: 0 auto;
+                max-width: fit-content;
+            }
+
+        }
+    }
+
+    #{$hero-speech} {
+        &::before, &::after  {
+            top:100%;
+            left: 42px;
+            transform: rotate(0);
+        }
+    }
+
+    #{$prep-ex} {
+        &_proper {
+            display: grid;
+
+            .infinity-stones {
+                width: 100%;
+            }
+        }
+
+        &_proper__list {
+            margin-right: 0;
+        }
+
+        &_common {
+            position: relative;
+        }
+
+        &_common__list_en, &_common__list_ru {
+            li {
+                padding-bottom: 40px;
+            }
+        }
+
+        &_common__list_en {
+            padding-right: 5px;
+        }
+
+        &_common__list_ru {
+            position: absolute;
+            grid-area: none;
+            top: 90px;
+            left: 50px;
+            color:  $secondary-color;
+        }
+    }
+
+    #{$audio-test} {
+        &_first-part {
+            column-count: 1;
+        }
+
+        &__question {
+            padding: 10px 0;
+        }
+    }
 }
