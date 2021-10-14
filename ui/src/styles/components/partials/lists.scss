@@ -1,11 +1,21 @@
 ol {
     list-style-position: inside;
+
+    li {
+        padding: 5px;
+    }
+
+    a {
+        color: #b0d0ec;
+    }
 }
 
-li {
-    padding: 5px;
-}
+ul {
+    color: white;
+    list-style-type: none;
 
-ol a {
-    color: #b0d0ec;
+    li {
+        padding: 0;
+        padding-right: 5px;
+    }
 }

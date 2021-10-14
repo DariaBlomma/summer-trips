@@ -17,7 +17,7 @@ $select-wrapper: '.select-wrapper';
 
 .index-page {
     height: 100vh;
-    background-image: url('../images/avengers.jpg'), url('../images/avengers.jpg');
+    background-image: url('../images/backgrounds/avengers.jpg'), url('../images/backgrounds/avengers.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -44,7 +44,7 @@ $select-wrapper: '.select-wrapper';
 // adaptive
 @media (max-width: 770px) {
     .index-page {
-        background-image: url('../images/avengers_mobile.jpg');
+        background-image: url('../images/backgrounds/avengers_mobile.jpg');
         padding: 0 10px;
         background-position-y: top;
         padding-top: 15px;

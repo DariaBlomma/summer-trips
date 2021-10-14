@@ -27,8 +27,9 @@ $lesson1: '.lesson1';
         display: grid;
         grid-template-areas: 
             'speech speech speech'
-            'img audio test'
-            'img prep test'
+            'img audio prepProper'
+            'img prepCommon prepProper'
+            'test1 test1 test2'
             'decision decision decision'
             'video video video';
         grid-template-columns: repeat(3, 1fr);
@@ -80,18 +81,110 @@ $hero-img: '.hero-img';
 .audio-file {
     grid-area: audio;
     color: white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
 }
 
-.prep-ex {
-    grid-area: prep;
+$prep-ex: '.prep-ex';
+#{$prep-ex} {
+    &_common {
+        grid-area: prepCommon;
+        color: white;
+        display: grid;
+        grid-template-areas: 
+        'heading heading'
+        'en ru';
+        justify-content: space-between;
+        align-items: center;
+
+        .title-3 {
+            grid-area: heading;
+        }
+    }
+
+    &_proper {
+        grid-area: prepProper;
+        display: grid;
+        align-items: center;
+    }
+
+    &_proper__list {
+        border-radius: $card-border-radius;
+        padding: $card-padding;
+        box-shadow: 0 0 15px rgb(154, 149, 243 / 60%), 0 0 66px rgb(147, 141, 255 / 75%) inset;
+        text-align: center;
+    }
+
+    &_common__list_en {
+        grid-area: en;
+    }
+
+    &_common__list_ru {
+        grid-area: ru;
+    }
 }
 
-.audio-test {
-    grid-area: test;
+.infinity-stones {
+    border-radius: $card-border-radius;
+    width: 100%;
+    margin-top: 10px;
 }
 
-.first-decision {
+@mixin audio-test() {
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+$audio-test: '.audio-test';
+#{$audio-test} {
+    @include audio-test;
+
+    &_first-part {
+        @include audio-test;
+        grid-area: test1;
+        display: block;
+        column-count: 2;
+
+        .title-3 {
+            column-span: all;
+            margin-bottom: 15px;
+        }
+    }
+
+    &_second-part {
+        @include audio-test;
+        grid-area: test2;
+    }
+
+    &__question {
+        margin-top: 10px;
+    }
+}
+
+$first-decision: '.first-decision';
+#{$first-decision} {
     grid-area: decision;
+    color: white;
+
+    &__variants-list {
+        margin-left: 15px;
+        list-style-type: disc;
+
+        li:hover, .variants li:active {
+            color: #e8c30d;
+        }
+    }
+
+    &__sub-variants-list {
+        list-style-type: circle;
+        margin-left: 20px;
+
+        li:hover,  .sub-variants li:active {
+            color: yellow;
+        }
+    }
 }
 
 .video-result {

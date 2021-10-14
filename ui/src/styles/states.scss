@@ -1,4 +1,16 @@
 // states
+
+// position
+.centered {
+    display: flex;
+    justify-content: center;
+}
+
+// appearance
+.has-descr {
+    color:  #e8c30d;
+}
+
 .shadowed-pic {
     box-shadow: 0px 0px 30px 22px rgba(255, 255, 255, 0.2);
 }
