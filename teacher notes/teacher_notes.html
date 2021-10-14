@@ -114,6 +114,15 @@
         <h1>Код</h1>
         <li>Vue для клиентской части
             <ol>
+                <li>Lesson 1. Игрок слушает речь героев в фильие. 
+                    <ol>
+                        <li>По аналогии с puzzle english - разбить все предложения на отдельные слова,
+                            собрать нужные контрольные предложения в нужном порядке
+                        </li>
+                        <li>Добавить к собранным предложениям перевод <span class='key-words'>сложных незнакомых слов</span> (на основании языковой догадки)</li>
+                        <li>Автоматически останавливать видео на определенном времени. Игрок может переслушивать отрывки</li>
+                    </ol>
+                </li>
                 <li>Vuex</li>
                 <li>Анимации
                     <ol>
@@ -130,6 +139,8 @@
                 <li>В таблице баллов добавить вывод максимально возможного кол-во за урок\дз\доп задание <br>
                     (набрано\максимально) - 15\20
                 </li>
+                <li class='in-progress'>БЭМ</li>
+                <li class='in-progress'>SCSS</li>
             </ol>
         </li>
         <li><span class='think'>Node vs PHP для бэка?</span>
@@ -143,8 +154,9 @@
     </ol>
 
     <h1>План по каждому занятию</h1>
-    <ol>
         <h2>IndexPage</h2>
+        <h4>Краткий план</h4>
+    <ol class='short-plan'>
         <li>В раскрывающемся списке выбрать интересующих персонажей</li>
         <li>Прочитать представления открывшихся персонажей, сделать выбор персонажа</li>
         <li>В появившейся форме ввести: </br>
@@ -153,14 +165,27 @@
         </li>
     </ol>
         
-
-    <ol>
         <h2>Урок 1 </h2>
+        <h4 class='film-time'>Отрывок в фильме: 00.00 - 02.20 </h4>
+        <h4>Краткий план</h4>
+        <ol class='short-plan'>
+            <li>Читаем введение от персонажа</li>
+            <li>Слушаем аудио - его рассказ</li>
+            <li>Проходим тест по этому аудио</li>
+            <li>Если нужно, слушаем речь других персонажей из фильма (куски видео без субтитров)</li>
+            <li>Обсуждаем устно, что делать дальше и выбираем соответствующий пункт в first decisio списке</li>
+            <li>Смотрим видео-иллюстрации в зависимости от выбранного варианта </li>
+        </ol>
+    <ol>
         <li>Рассказ от лица выбранного персонажа о сложившейся ситуации на данный момент.
             Текст записан как аудио, по нему сделан тест и начисляются все баллы за данный урок</li>
         <li>Выбор дальнейшего развития событий
             <h3>Thanos</h3>
-            <p>Ситуация: захватил корабль Асгардцев. Хочет получить Tesseract, Space Stone.</p>
+            <p>Ситуация: захватил корабль Асгардцев. Хочет получить Tesseract, Space Stone. Слушает ответы собеседников</p>
+            <span class='goal'>чтобы не проиграть, устранить оласность вовремя, найти Тессеракт</span>
+            <ul class='result'>
+                <li>0-1 ошибка - находит Тессеракт</li>
+            </ul>
             <h4>С помощью говорения определяем развитие событий</h4>
             <ul>
                 <li>Обыскать везде и всех</li>
@@ -172,16 +197,56 @@
                     </ul>
                 </li>
             </ul>
+            <ol>
+                <li>You talk too much</li>
+                <li><span class='key-words'>Kill away</span> </li>
+                <li><span class='key-words'>All right</span> , stop! <br>
+                <li>We don't have the Tesseract</li>
+                <li>It <span class='key-words'>was destroyed</span> on Asgard</li>
+                <li>we have a hulk</li>
+                <li>If I <span class='key-words'>might</span> <span class='key-words'>interject</span></li>
+                <li>If <span class='key-words'>you're going to</span> Earth, you might want a <span class='key-words'>guide</span></li>
+                <li>I do have a bit of <span class='key-words'>experience</span> in that arena</li>
+                <li>I <span class='key-words'>consider</span> experience experience</li>
+            </ol>
             <h3>Thor</h3>
             <p>Ситуация: слушает Таноса и всех остальных, чтобы быть в курсе происходящего.
                 В зависимости от правильных ответов копит силы на сопротивление.
-                В любом случае происходит пытка</p>
+            </p>
             <ol>
-                <li>Слушает Таноса</li>
-                <li>Смотрит первую часть видео Lesson 1. Thor tortures. Part 1.</li>
+                <li>Слушает Таноса 1-й раз</br>
+                    <span class="goal">чтобы сбежать самому с выжившими или дать бой Таносу</span> </br>
+                    <span class="result"> вырваться не может в любом случае, нужно 6 очков </span>
+                    <ol>
+                        <li>You have had the <span class='key-words'>priviledge</span> of being <span class='key-words'>saved</span> by <span class='key-words'>Great Titan</span>  </li>
+                        <li><span class='key-words'>Universal scales</span>  <span class='key-words'>tip toward</span>  balace because of your <span class='key-words'></span> sacrifice</li>
+                        <li>I <span class='key-words'>know</span>  <span class='key-words'>what it's like</span>  <span class='key-words'>to lose</span> </li>
+
+                    </ol>
+                </li>
+                <li>Смотрит первую часть видео Lesson 1. Thor tortures. Part 1. </br>
+                    <span class="goal">чтобы не давать Таносу повода для шантажа, не отдавать Тессеракт</span> </br>
+                    <span class="result"> вырваться может, нужно 7 очков </span>
+                    <ol start=4>
+                        <li>It's <span class='key-words'>frightening</span></li>
+                        <lI><span class='key-words'>Destiny</span>  <span class='key-words'>arrives</span> <span class='key-words'>all the same</span> </LI>
+                        <li>You talk too much</li>
+                        <li>The Tesseract. Or your brother's head</li>
+                    </ol>
+                </li>
                 <li>Рассуждает на тему: будет ли его пытать Танос, сказать ли ему про Камень,
                     что сделает Локи, предаст или нет, скажет или нет</li>
-                <li>Смотрит вторую часть видео Lesson 1. Thor tortures. Part 2</li>
+                <li>Смотрит вторую часть видео Lesson 1. Thor tortures. Part 2 </br>
+                    <span class="goal">чтобы не дать себя убить, спасти Локи, не отдавать Тессеракт</span> </br>
+                    <span class="result"> вырваться может, нужно 9 очков </span>
+                    <ol start=8>
+                        <li><span class='key-words'>Kill away</span> </li>
+                        <li><span class='key-words'>All right</span> , stop! <br>
+                            <span class='own-words'>You really are <span class='key-words'>the worst</span>  brother</span>
+                        </li>
+                        <li>I <span class='key-words'>assure</span>  you, brother, the sun will <span class='key-words'>shine</span>  on us again</li>
+                    </ol>
+                </li>
                 <li>Прогнозирует дальнейшие действия Таноса, что делать, чтобы спасти ситуацию</li>
             </ol>
             <h3>Hulk</h3>
@@ -189,12 +254,27 @@
                 Когда услышит - начнет бой. 
                 В зависимости от правильных ответов и ошибок может терять силы на будущую атаку. 
                 Кончится либо потерей сознания в критическом состоянии или просто проиграет и 
-                не сможет подняться</p>
-            <ul>
+                не сможет подняться
+            </p>
+            <span class="goal">чтобы иметь силы на будущую атаку, спасти Локи.</span> </br>
+            <ul class="result">
+                <li>0-1 ошибка - побеждает (смотрим начало своей драки), спасает Локи</li>
                 <li>Если не очень много ошибок - смотрит полную версию, проигрывает в нормальном состоянии (понятно по комментариям к видео)</li>
                 <li>Если слишком много ошибок - смотрит короткую версию, сразу с частью проигрывания,
                     проигрывает в критическом состоянии (понятно по комментариям к видео)</li>
             </ul>
+            <ol>
+                <li>You have had the <span class='key-words'>priviledge</span> of being <span class='key-words'>saved</span> by <span class='key-words'>Great Titan</span>  </li>
+                <li><span class='key-words'>Universal scales</span>  <span class='key-words'>tip toward</span>  balace because of your <span class='key-words'></span> sacrifice</li>
+                <li>I <span class='key-words'>know</span>  <span class='key-words'>what it's like</span>  <span class='key-words'>to lose</span> </li>
+                <li>It's <span class='key-words'>frightening</span></li>
+                <li><span class='key-words'>Destiny</span>  <span class='key-words'>arrives</span> <span class='key-words'>all the same</span> </li>
+                <li>The Tesseract. Or your brother's head</li>
+                <li>Your <span class='key-words'>optimism</span>  <span class='key-words'>is misplaced</span>, Asgardian</li>
+                <li>Well, <span class='key-words'>for one thing</span>, I am not Asgardian</li>
+                <li>And <span class='key-words'>for another</span> ...</li>
+                <li>We have a Hulk</li>
+            </ol>
         </li>
         <li>Видео с результатом в зависимости от действий игрока</li>
     </ol>

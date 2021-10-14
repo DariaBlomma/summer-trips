@@ -234,11 +234,14 @@
         </div>
         <div class='video-result'>
             <video controls>
+                <!-- Thanos - it's frightening - assume you have a preference-->
                 <!-- <source src='@/media/lesson1/Lesson1.Thor-tortures.Part-1.mp4' type='video/mp4'> -->
-                <!-- <source src='@/media/lesson1/Lesson1.Thor-tortures.Part-2.mp4' type='video/mp4'> -->
+                
+                <!-- Loki - kill away -  the sun will shine on us again-->
+                <source src='@/media/lesson1/Lesson1.Thor-tortures.Part-2.mp4' type='video/mp4'>
                 <!-- <source src='@/media/lesson1/Lesson1.Hulk-fight.Full-version.mp4' type='video/mp4'> -->
                 <!-- <source src='@/media/lesson1/Lesson1.Hulk-fight.Short-version.mp4' type='video/mp4'> --> -->
-                <source src='@/media/lesson1/Lesson1.Thanos-killing-Loki.mp4' type='video/mp4'>
+                <!-- <source src='@/media/lesson1/Lesson1.Thanos-killing-Loki.mp4' type='video/mp4'> -->
             </video>
         </div>
     </main>
