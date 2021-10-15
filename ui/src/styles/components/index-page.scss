@@ -45,18 +45,12 @@ $select-wrapper: '.select-wrapper';
 @media (max-width: 770px) {
     .index-page {
         background-image: url('../images/backgrounds/avengers_mobile.jpg');
-        padding: 0 10px;
         background-position-y: top;
-        padding-top: 15px;
     }
 }
 
 
 @media (max-width: 375px) {
-    .index-page {
-        padding: 10px;
-    }
-
     #{$select-wrapper} {
         max-width: 130px;
     }

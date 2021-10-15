@@ -24,14 +24,15 @@ $timer: '.timer';
 $timer-id: '#timer';
 
 #{$timer} {
-    margin-top:3rem;
-    margin-bottom:6rem;
+    padding-top:3rem;
+    padding-bottom:6rem;
     display: grid;
     grid-template-areas: 
     'title title title title title'
     'hours dot1 minutes dot2 seconds'
     'h_text . m_text . s_text';
     justify-content: center;
+    line-height: initial;
 
     &__action {
         font-weight:300;
@@ -118,5 +119,59 @@ $points: '.points';
     display: flex;
     flex-direction: column;
     padding-top: 25px;
+}
 
+@media (max-width: 600px) {
+    #{$personal-page} {
+        height: 100%;
+    }
+
+    #{$timer} {
+        padding: 3rem 0;
+    }
+
+    #{$game-info} {
+        grid-template-areas: 
+        'lessons hws'
+        'tasks tasks'
+        'points points';
+        justify-items: center;
+
+        div {
+            max-width: fit-content;
+        }
+    }
+
+    #{$points} {
+        max-width: 86vw;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 400px) {
+    #{$timer} {
+        grid-template-areas: 
+            'title title'
+            'hours h_text'
+            'minutes m_text'
+            'seconds s_text';
+
+        &__dot1, &__dot2 {
+            display: none;
+        }
+
+        &__action {
+            margin-bottom: 1.5rem;
+        }
+
+        &__numbers {
+            font-size: 4rem;
+            justify-self: center;
+        }
+
+        &__h-text, &__m-text, &__s-text {
+            align-self: center;
+            justify-self: flex-start;
+        }
+    }
 }

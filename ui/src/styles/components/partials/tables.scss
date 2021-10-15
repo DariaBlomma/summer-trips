@@ -20,3 +20,13 @@ $table: '.table';
         background-color: #f5f5dc66;
     }
 }
+
+@media (max-width: 400px) {
+    #{$table} {
+        th, td {
+            max-width: 50px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

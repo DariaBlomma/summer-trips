@@ -1,5 +1,5 @@
 <template>
-    <div class="personal-page">
+    <div class="page personal-page">
         <Header 
             :coinsNumber=1
             class='personal-page__header'

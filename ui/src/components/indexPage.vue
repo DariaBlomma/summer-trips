@@ -1,6 +1,6 @@
 <template>
     <Popup />
-    <div class="index-page">
+    <div class="page index-page">
         <Header 
             :coinsNumber=1
         />

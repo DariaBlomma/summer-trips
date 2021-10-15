@@ -30,4 +30,17 @@ body {
     line-height: 30px;
 }
 
+@media (max-width: 770px) {
+    .page {
+        padding: $page-770-padding;
+    }
+}
+
+
+@media (max-width: 375px) {
+    .page {
+        padding: $page-375-padding;
+    }
+}
+
 @import './states.scss';

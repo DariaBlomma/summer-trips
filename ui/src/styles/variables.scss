@@ -15,8 +15,6 @@ $secondary-bright-color: #d6d100;
 $secondary-border-color: #75721a;
 $secondary-inset-shadow-color: rgb(147, 141, 255 / 75%);
 
-$lesson-dark-background: linear-gradient(180deg, rgba(0,0,1,1) 0%, #040712 35%, rgba(81,83,83,1) 100%);
-
 //mobile headings
 $mobile-primary-title-size: 1.3em;
 $mobile-secondary-title-size: 1em;
@@ -65,8 +63,11 @@ $thead-bgcolor: #ffffff29;
 $td-border: 1px solid white;
 $td-padding: 5px;
 
-// hero-speech
-$hero-speech-bgcolor: #e0ae7d;
+// pages
+$lesson-dark-background: linear-gradient(180deg, rgba(0,0,1,1) 0%, #040712 35%, rgba(81,83,83,1) 100%);
+
+$page-770-padding: 15px 10px;
+$page-375-padding: 10px;
 
 //white img blur
 $shadowed-pic: 0px 0px 30px 22px rgba(255, 255, 255, 0.2);
