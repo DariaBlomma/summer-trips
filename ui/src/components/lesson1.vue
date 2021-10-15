@@ -232,6 +232,30 @@
             </ul>
             <h3 class='title-3 light centered if if-thor'>What is going on?</h3>
             <button class='btn'><h3 class='title-3 light'>Choose</h3></button>
+            <h3 class="title-3 light centered ">Words box</h3>
+            <div class='words-box'>
+                <div  
+                    v-for="item, i in ThanosThorSortedWords"
+                    :key="i"
+                    class="words-box__item centered"
+                >
+                <h3 class="title-3">
+                    {{ item }}
+                </h3>
+                </div>
+            </div>
+            <h3 class="title-3 light centered ">Your answer</h3>
+            <div class='result'>
+                <div class="result__line">
+                    <div 
+                        v-for="item, i in ThanosThorAnswerLine"
+                        :key="i"
+                        class="result__item"
+                    >
+                    </div>
+                    <button class="result__button"><h3 class="title-3 light">Check</h3></button>
+                </div>
+            </div>
         </div>
         <div class='video-result'>
             <video controls>
@@ -257,5 +281,71 @@ export default {
     components: {
         Header,
     },
+    data() {
+        return {
+            ThanosThorPhrases: [
+                "You talk too much.",
+                "kill away.",
+                "All right, stop!",
+            ],
+            ThanosHulkPhrases: [
+                "We have a Hulk."
+            ],
+            ThorHulkPhrases: [
+                "You have had the priviledge of being saved by Great Titan.",
+                "Universal scales tip toward balance because of your sacrifice.",
+                "I know what it's like to lose.",
+                "It's frightening.",
+                "Destiny arrives all the same.",
+                "The Tesseract. Or your brothers head."
+            ],
+            ThanosPhrases: [
+                "we don't have the Tesseract.", 
+                "It was destroyed on Asgard.",
+                "If I might interject...",
+                "If you're going to Earth, you might want a guide.",
+                "I do have a bit of experience in that arena.",
+                "I consider experience experience"
+            ],
+            ThorPhrases: [
+                "I assure you, brother, the sun will shine on us again."
+            ],
+            HulkPhrases: [
+                "You optimism is misplaced, Asgardian",
+                "Well, for one thing, I am not Asgardian.",
+                "And for another ...",
+            ],
+            ThanosThorWords: [],
+            ThanosThorSortedWords: [],
+            
+        }
+    },
+    mounted() {
+        console.log(this.splitListeningWords());
+        console.log(this.sortListeningWords());
+    },
+    computed: {
+        // возвращает отсортированный массив с отдельными словами длоя рендеринга
+        ThanosThorAnswerLine() {
+            return this.ThanosThorPhrases[0].split(" ");
+        }
+    },
+    methods: {
+        // разбивает массивы фраз на отдельные слова
+        splitListeningWords() {
+            this.ThanosThorPhrases.forEach(item => {
+                const words = item.split(" ");
+                words.forEach(elem => {
+                    this.ThanosThorWords.push(elem);
+                });
+            });
+            return this.ThanosThorWords;
+        },
+        // сортирует массив слов по алфавиту, чтобы ренерить в случайном порядке
+        sortListeningWords() {
+            this.ThanosThorSortedWords = this.ThanosThorWords.sort();
+            return this.ThanosThorSortedWords;
+        }
+    }
 }
 </script>

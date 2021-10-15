@@ -4,6 +4,7 @@
 .centered {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 // appearance
@@ -12,7 +13,7 @@
 }
 
 .shadowed-pic {
-    box-shadow: 0px 0px 30px 22px rgba(255, 255, 255, 0.2);
+    box-shadow: $shadowed-pic-shadow;
 }
 
 .bold {
@@ -42,4 +43,23 @@
 
 .o-none {
     opacity: 0;
+}
+
+// drag and drop
+.is-dragged-over {
+    background-color: $is-dragged-over-background;
+}
+
+.is-dropped {
+    opacity: $is-dropped-opacity;
+}
+
+.right {
+    background: rgb(0,0,1);
+    background: $right-answer-background;
+}
+
+.wrong {
+    background: rgb(0,0,1);
+    background: $wrong-answer-background;
 }

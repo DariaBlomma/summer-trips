@@ -2,8 +2,9 @@
 $lesson1: '.lesson1';
 #{$lesson1} {
     padding: 10px;
-    background: rgb(2,0,36);
-    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    background: rgb(0,0,1);
+    background: $lesson-dark-background;
+    // background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
     background-repeat: no-repeat;
     height: 100%;
 
@@ -46,13 +47,14 @@ $hero-speech: '.hero-speech';
     margin-bottom: 50px;
     margin-top: 25px;
     background-color: $hero-speech-bgcolor;
+    background: linear-gradient(to bottom, $secondary-color, $secondary-border-color);
     padding: 20px;
     padding-left: 50px;
     border-radius: 40px;
 
     &::before {
         border: 30px solid transparent;
-        border-top-color:$hero-speech-bgcolor;
+        border-top-color:$secondary-border-color;
         position:absolute;
         top: 100%;
         left: 40px;
@@ -61,7 +63,7 @@ $hero-speech: '.hero-speech';
 
     &::after {
         border:28px solid transparent;
-        border-top-color:$hero-speech-bgcolor;
+        border-top-color:$secondary-border-color;
         position:absolute;
         top:100%;
         left: 42px;
@@ -120,8 +122,6 @@ $prep-ex: '.prep-ex';
         padding: $card-padding;
         box-shadow: 0 0 15px rgb(154, 149, 243 / 60%), 0 0 66px rgb(147, 141, 255 / 75%) inset;
         text-align: center;
-
-
     }
 
     &_common__list_en {
@@ -132,8 +132,6 @@ $prep-ex: '.prep-ex';
         grid-area: ru;
     }
 }
-
-
 
 @mixin audio-test() {
     color: white;
@@ -170,14 +168,14 @@ $audio-test: '.audio-test';
 $first-decision: '.first-decision';
 #{$first-decision} {
     grid-area: decision;
-    color: white;
+    color: $title-3-light-color;
 
     &__variants-list {
         margin-left: 15px;
         list-style-type: disc;
 
         li:hover, .variants li:active {
-            color: #e8c30d;
+            color: $secondary-color;
         }
     }
 
@@ -186,11 +184,49 @@ $first-decision: '.first-decision';
         margin-left: 20px;
 
         li:hover,  .sub-variants li:active {
-            color: yellow;
+            color: $secondary-inset-shadow-color;
         }
     }
 }
 
+$words-box: '.words-box';
+#{$words-box} {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        width: $button-width;
+        height: $button-height;
+        border: $card-dark-border;
+        border-radius: $button-height;
+        background: $drag-words-background;
+        box-shadow: $card-inner-shadow;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+$result: '.result';
+#{$result} {
+    &__line {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    &__item {
+        width: $button-width + 10;
+        height: $button-height + 10;
+        border-radius: $button-height;
+        border: $drop-area-border;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    &__button {
+        margin-left: auto;
+    }
+}
 .video-result {
     grid-area: video;
 }
