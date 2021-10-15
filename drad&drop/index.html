@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and drop</title>
+    <style>
+        .box {
+            display: flex;
+        }
+
+        .box__item {
+            width: 100px;
+            height: 30px;
+            border: 1px solid black;
+            background-color: rgb(127, 225, 255);
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        .result__line {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .result__item {
+            width: 110px;
+            height: 40px;
+            border: 2px dashed rgb(184, 181, 181);
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        .is-dragged-over {
+            background-color:rgb(184, 181, 181, 0.5);
+        }
+
+        .is-dropped {
+            opacity: 0.7;
+        }
+
+        .right {
+            background-color: aquamarine;
+        }
+
+        .wrong {
+            background-color: rgb(231 143 102);
+        }
+    </style>
+</head>
+<body>
+    <div class='box'>
+        <div class='box__item one' draggable="true">One</div>
+        <div class='box__item two' draggable="true">TWo</div>
+        <div class='box__item three' draggable="true">Three</div>
+        <div class='box__item four' draggable="true">Four</div>
+        <div class='box__item five' draggable="true">Five</div>
+        <div class='box__item six' draggable="true">Six</div>
+        <div class='box__item seven' draggable="true">Seven</div>
+    </div>
+
+    <ul>
+        <li>2 3 1 6</li>
+        <li>7 4 5</li>
+    </ul>
+    <h4>Result</h4>
+    <div class='result'>
+        <div class='result__line'>
+            <div class='result__item line1' ondrop="drop_handler(event)" ondragover="dragover_handler(event)" ondragleave='dragleave_handler(event)' data-answer='two'></div>
+            <div class='result__item line1' ondrop="drop_handler(event)" ondragover="dragover_handler(event)" ondragleave='dragleave_handler(event)' data-answer='three'></div>
+            <div class='result__item line1' ondrop="drop_handler(event)" ondragover="dragover_handler(event)" ondragleave='dragleave_handler(event)' data-answer='one'></div>
+            <div class='result__item line1' ondrop="drop_handler(event)" ondragover="dragover_handler(event)" ondragleave='dragleave_handler(event)' data-answer='six'></div>
+            <button class='check'>Check</button>
+        </div>
+        <div class='result__line'>
+            <div class='result__item' ondrop="drop_handler(event)" ondragover="dragover_handler(event)" ondragleave='dragleave_handler(event)' data-answer='seven'></div>
+            <div class='result__item' ondrop="drop_handler(event)" ondragover="dragover_handler(event)" ondragleave='dragleave_handler(event)' data-answer='four'></div>
+            <div class='result__item' ondrop="drop_handler(event)" ondragover="dragover_handler(event)" ondragleave='dragleave_handler(event)' data-answer='five'></div>
+            <button class='check'>Check</button>
+        </div>
+    </div>
+</body>
+<script src='./index.js'></script>
+</html>
